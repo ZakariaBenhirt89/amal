@@ -9,7 +9,8 @@ use Vimeo\Laravel\VimeoManager;
 
 class VimeoController extends Controller
 {
-    protected $vimeo ;
+    protected $vimeo;
+
     public function __construct(VimeoManager $vimeo)
     {
         $this->vimeo = $vimeo;

@@ -34,6 +34,9 @@ Route::group(['middleware' => 'auth:admin'], function () {
         Route::group(['prefix' => 'pre_registration'], function () {
             Route::get('/','App\Http\Controllers\admin\Pre_registration_controller@index')->name('admin.pre_registration');
             Route::get('/create','App\Http\Controllers\admin\Pre_registration_controller@create')->name('admin.pre_registration.create');
+            Route::post('store-pre-registration','App\Http\Controllers\admin\Pre_registration_controller@store')->name('admin.pre_registration.store');
+            Route::get('/search','App\Http\Controllers\admin\Pre_registration_controller@searchStudent')->name('admin.pre_registration.search_student');
+
         });
 
         Route::group(['prefix' => 'students'], function () {
@@ -43,6 +46,8 @@ Route::group(['middleware' => 'auth:admin'], function () {
         Route::group(['prefix' => 'chiefs'], function () {
             Route::get('/','App\Http\Controllers\admin\ChiefController@index')->name('admin.chiefs.index');
             Route::get('/create','App\Http\Controllers\admin\ChiefController@create')->name('admin.chiefs.create');
+            Route::post('/store-chiefs','App\Http\Controllers\admin\ChiefController@store')->name('admin.chiefs.store');
+
         });
 
         Route::group(['prefix' => 'course'], function () {

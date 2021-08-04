@@ -44,6 +44,6 @@ Route::group(['middleware' => 'auth:web'], function () {
 });
 
 //Route::get('/dashboard', [App\Http\Controllers\LoginController::class, 'dashboard'])->name('dashboard.route');
-
-
+Route::post('course/thumbs' , 'App\Http\Controllers\admin\CourseController@storeCourseThumn')->name('course.thumbs');
+Route::post('course/intro' , 'App\Http\Controllers\admin\CourseController@storeCourseIntro')->name('course.intro');
 require __DIR__.'/auth.php';

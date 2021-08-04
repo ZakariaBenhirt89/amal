@@ -43,28 +43,28 @@
                                 <!-- Stepper Button -->
                                 <div style="direction: rtl" class="bs-stepper-header shadow-sm" role="tablist">
                                     <div class="step" data-target="#test-l-1">
-                                        <button type="button" class="step-trigger" role="tab" id="courseFormtrigger1" aria-controls="test-l-1">
+                                        <button type="button" class="step-trigger" role="tab" id="courseFormtrigger1" aria-controls="test-l-1" disabled>
                                             <span class="bs-stepper-circle">1</span>
                                             <span style="font-size: 20px;"  class="bs-stepper-label arab">معلومات اساسية</span>
                                         </button>
                                     </div>
                                     <div class="bs-stepper-line"></div>
                                     <div class="step" data-target="#test-l-2">
-                                        <button type="button" class="step-trigger" role="tab" id="courseFormtrigger2" aria-controls="test-l-2" >
+                                        <button type="button" class="step-trigger" role="tab" id="courseFormtrigger2" aria-controls="test-l-2" disabled>
                                             <span class="bs-stepper-circle">2</span>
                                             <span style="font-size: 20px;" class="bs-stepper-label arab">وسائط الدورة</span>
                                         </button>
                                     </div>
                                     <div class="bs-stepper-line"></div>
                                     <div class="step" data-target="#test-l-3">
-                                        <button type="button" class="step-trigger" role="tab" id="courseFormtrigger3" aria-controls="test-l-3" >
+                                        <button type="button" class="step-trigger" role="tab" id="courseFormtrigger3" aria-controls="test-l-3" disabled>
                                             <span class="bs-stepper-circle">3</span>
                                             <span style="font-size: 20px;" class="bs-stepper-label arab">مواد الدورة</span>
-                                        </button>
+                                        </button >
                                     </div>
                                     <div class="bs-stepper-line"></div>
                                     <div class="step" data-target="#test-l-4">
-                                        <button type="button" class="step-trigger" role="tab" id="courseFormtrigger4" aria-controls="test-l-4" >
+                                        <button type="button" class="step-trigger" role="tab" id="courseFormtrigger4" aria-controls="test-l-4" disabled>
                                             <span class="bs-stepper-circle">4</span>
                                             <span style="font-size: 20px;" class="bs-stepper-label arab">متطلبات</span>
                                         </button>
@@ -72,7 +72,7 @@
                                 </div>
                                 <!-- Stepper content -->
                                 <div class="bs-stepper-content mt-5">
-                                    <form id="wizzard" enctype="multipart/form-data">
+                                    <form  id="wizzard" enctype="multipart/form-data">
                                         @csrf
                                         <!-- Content one -->
                                         <div id="test-l-1" role="tabpanel" class="bs-stepper-pane fade" aria-labelledby="courseFormtrigger1">
@@ -90,7 +90,7 @@
                                                     </div>
                                                     <div style="text-align: end;" class="mb-3">
                                                         <label class="arab form-label" for="course_category">فئة الدورة</label>
-                                                        <select id="course_category" style="direction: rtl;" name="course_category" class="form-control form-control-sm arab" data-width="100%">
+                                                        <select id="course_category" style="direction: rtl;" name="course_category"  class="form-control form-control-sm arab" data-width="100%" required>
                                                             <option  value="">اختر الفئة</option>
                                                             <option value="1">الفئة1</option>
                                                             <option value="2">الفئة2</option>
@@ -101,17 +101,17 @@
                                                     </div>
                                                     <div style="text-align: end;" class="mb-3">
                                                         <label class="arab form-label">وصف مختصر الدورة</label>
-                                                        <textarea id="course_short_descreption" style="direction: rtl;" class="form-control form-control-sm" name="short_description" placeholder="وصف مختصر الدورة"></textarea>
+                                                        <textarea id="course_short_descreption" style="direction: rtl;" class="form-control form-control-sm" name="short_description" placeholder="وصف مختصر الدورة" required></textarea>
 
                                                     </div>
                                                     <div style="text-align: end;" class="mb-3">
                                                         <label class="arab form-label">وصف الدورة</label>
-                                                        <textarea id="course_descreption" rows="10" style="direction: rtl;" name="description" class="form-control form-control-sm" placeholder="وصف الدورة"></textarea>
+                                                        <textarea id="course_descreption" rows="10" style="direction: rtl;" name="description" class="form-control form-control-sm" placeholder="وصف الدورة" required></textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- Button -->
-                                            <button id="first_next_btn" class="btn btn-primary" onclick="courseForm.next()">
+                                            <button id="first_next_btn" class="btn btn-primary" onclick="courseForm.next()" disabled>
                                                 التالي
                                             </button>
                                         </div>
@@ -124,14 +124,14 @@
                                                 </div>
                                                 <!-- Card body -->
                                                 <div class="card-body">
-                                                    <div class="custom-file-container" data-upload-id="courseCoverImg" id="courseCoverImg">
+                                                    <div class="custom-file-container fallback" data-upload-id="courseCoverImg" id="courseCoverImg">
                                                         <label style="width: 100%;text-align: end" class="arab form-label">صورة غلاف الدورة
                                                             <a href="javascript:void(0)" class="custom-file-container__image-clear"
                                                                title="Clear Image"></a></label>
                                                         <label  class="custom-file-container__custom-file">
                                                             <input  type="file" name="course_image" class="custom-file-container__custom-file__custom-file-input"
-                                                                   accept="image/*" />
-                                                            <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+                                                                   accept="image/*" required />
+                                                            <input type="hidden" name="MAX_FILE_SIZE" value="10485760" required />
                                                             <span class="custom-file-container__custom-file__custom-file-control"></span>
                                                         </label>
                                                         <small style="direction: rtl;" class="arab mt-3 d-block">قم بتحميل صورة الدورة التدريبية الخاصة بك هنا. يجب أن تفي بمعايير جودة صورة الدورة التدريبية لدينا حتى يتم قبولها. إرشادات مهمة: 750 × 440 بكسل ؛ .jpg ، .jpeg ،. gif أو png. لا يوجد نص على الصورة.</small>
@@ -141,7 +141,7 @@
                                                         <div style="text-align: end;" class="mb-3">
                                                             <p style="text-align: end;" class="arab mb-1 text-dark">أضف فيديو</p>
                                                             <div class="input-group mb-1">
-                                                                <input type="file" name="course_video" class="form-control" id="inputLogo">
+                                                                <input type="file" name="course_video" class="form-control add_video_prom" id="inputLogo" required />
                                                                 <label class="arab input-group-text" for="inputLogo">Upload</label>
                                                             </div>
                                                             <small style="width:100%;text-align: end;" class="arab text-muted">(قم بتحميل شعار موقع الويب الخاص بك - 120 × 40)</small>
@@ -164,7 +164,7 @@
                                                 <button class="btn btn-secondary" onclick="courseForm.previous()">
                                                     السابق
                                                 </button>
-                                                <button class="btn btn-primary" onclick="courseForm.next()">
+                                                <button class="btn btn-primary" id="second_next_btn" onclick="courseForm.next()" disabled>
                                                     التالي
                                                 </button>
                                             </div>
@@ -513,7 +513,7 @@
                                                 <button class="btn btn-secondary" onclick="courseForm.previous()">
                                                     السابق
                                                 </button>
-                                                <button class="btn btn-primary" onclick="courseForm.next()">
+                                                <button class="btn btn-primary" id="third_btn" onclick="courseForm.next()" disabled>
                                                     التالي
                                                 </button>
                                             </div>
@@ -556,6 +556,8 @@
 
 @section('script')
     <script>
+        let formData = {}
+
         $(document).ready(function () {
                 var i=1;
             $("#btnAddNew").click(function () {
@@ -769,7 +771,7 @@
         observer.observe(targetNode, config);
     </script>
     <script>
-        /*validation script
+        const  formdata1 = new FormData()
         const firstInput = document.querySelector('#courseTitle');
         const  secondInput = document.querySelector('#course_category')
         const thirdInput = document.querySelector('#course_short_descreption')
@@ -793,7 +795,7 @@
             console.log('inside the second input')
             two = e.target.value
             console.log('the second' , two)
-            if (two === '' ){
+            if (two === '' || two === undefined ){
                 console.log('the empty one')
                 document.querySelector('#first_next_btn').disabled = true
                 console.log(fifthInput)
@@ -808,7 +810,7 @@
             if (tree === '' ){
                 console.log('the empty one')
                 document.querySelector('#first_next_btn').disabled = true
-                console.log(fifthInput)
+              //  console.log(fifthInput)
             }else {
                 document.querySelector('#first_next_btn').disabled = false
             }
@@ -822,12 +824,105 @@
                 document.querySelector('#first_next_btn').disabled = true
                 console.log(fifthInput)
             }else {
+                formdata1.append('courseTitle',one)
+                formdata1.append('courseCategory' , two)
+                formdata1.append('courseShortDescreption' , tree)
+                formdata1.append('courseDescreption' , forth)
+                for (let ent of formdata1.entries()){
+                    console.log(ent[0] +' ******* '+ent[1])
+                }
                 document.querySelector('#first_next_btn').disabled = false
             }
         })
-        */
 
 
+
+
+    </script>
+    <script>
+        //second thing validation
+        let formdata = new FormData()
+        const firstInput2 = document.querySelector('.custom-file-container__custom-file__custom-file-input');
+        const  secondInput2 = document.querySelector('.add_video_prom')
+        console.log(firstInput2+" second")
+        console.log(secondInput2+" second")
+        let one2 , two2 ;
+        firstInput2.addEventListener('change' , function (e){
+            console.log('inside the first Input')
+            one2 = e.target.value
+            console.log('the one ' )
+            console.table(e.target.files)
+            formdata1.append('courseThumbs', e.target.files[0])
+            for (let ent of formdata1.entries() ){
+                console.log(ent[0] + ' ********* '+ent[1])
+            }
+            if (one2 === '' || two2 === '' || one2 == null || two2 == null ){
+                console.log('the empty one')
+                document.querySelector('#second_next_btn').disabled = true
+            //    console.log(fifthInput2)
+            }else {
+                document.querySelector('#second_next_btn').disabled = false
+            }
+        })
+        secondInput2.addEventListener('change' , function (e){
+            console.log('inside the second input')
+            two2 = e.target.value
+            console.log('the second' , two2)
+            if (one2 === '' || two2 === '' || one2 == null || two2 == null ){
+                console.log('the empty one'+two2)
+                document.querySelector('#second_next_btn').disabled = true
+            }else {
+                console.log('the non empty one'+two2)
+                document.querySelector('#second_next_btn').disabled = false
+            }
+        })
+
+    </script>
+    <script>
+        //third validation
+       $(document).ready(function () {
+           let holderPodcast = [];
+           let holderVideos = []
+           let counter = 0 ;
+
+           document.querySelectorAll('[name="pod_cast_file[]"]').forEach( e => {
+                   console.log(' a podcast '+ ++counter)
+                   e.addEventListener('change' , function (evt) {
+                       evt.preventDefault()
+                       holderPodcast.push(evt.target.value)
+                       console.log(evt.target.value)
+                       console.log(holderPodcast)
+                       if (holderPodcast.includes(null) || holderPodcast.includes('') || holderVideos.includes(null) || holderVideos.includes('') || holderPodcast.length === 0 || holderVideos.length === 0 ){
+                           console.log('the empty one')
+                           document.querySelector('#third_btn').disabled = true||
+                           console.log('hoollle')
+                       }else {
+                           document.querySelector('#third_btn').disabled = false
+                       }
+
+                   })
+               }
+           )
+           document.querySelectorAll('[name="video_file[]"]').forEach( e => {
+                   console.log('a video '+ ++counter)
+                   e.addEventListener('change' , function (evt) {
+                       evt.preventDefault()
+                       holderVideos.push(evt.target.value)
+                       console.log(evt.target.value)
+                       console.table(holderVideos)
+                       if (holderPodcast.includes(null) || holderPodcast.includes('') || holderVideos.includes(null) || holderVideos.includes('') || holderPodcast.length === 0 || holderVideos.length === 0){
+                           console.log('the empty one')
+                           document.querySelector('#third_btn').disabled = true
+                           console.log('hoollle')
+                       }else {
+                           document.querySelector('#third_btn').disabled = false
+                       }
+
+                   })
+               }
+           )
+
+       })
     </script>
     <script>
 
@@ -848,6 +943,8 @@
     </script>
     <script>
         //console.log(typeof(document.querySelector('#submition')))
+        //first form
+
         $('.materiels_info').on('change' , function (e) {
             e.preventDefault()
             console.table(e.target.files)
@@ -861,8 +958,6 @@
                     'X-Requested-With': 'XMLHttpRequest'
                 }
             });
-            let formData = new FormData(document.querySelector('form'));
-
             $.ajax({
                 type : 'POST' ,
                 url : "{{ route('admin.course.store') }}",
@@ -886,6 +981,9 @@
         //     let _token   = $('meta[name="csrf-token"]').attr('content');
         //     console.log(file_name);
         // });
+
+    </script>
+    <script>
 
     </script>
 @endsection

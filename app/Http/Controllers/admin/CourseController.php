@@ -14,6 +14,12 @@ class CourseController extends Controller
     public function create(){
         return view('admin.courses.create');
     }
+    public function storeCourseThumn(Request $request){
+     Log::info(json_encode($request->all()));
+    }
+    public function storeCourseIntro(Request $request){
+     Log::info(json_encode($request->all()));
+    }
 
     /**
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
@@ -36,6 +42,9 @@ class CourseController extends Controller
         }
         Log::info('its working');
        // error_log('this is nice');
-        return response()->json(['success'=>'Got Simple Ajax Request.']);
+        return response()->json([
+            'success'=>'Got Simple Ajax Request.',
+            'data' => $request->all(),
+        ]);
     }
 }

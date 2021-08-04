@@ -52,169 +52,60 @@
                             <!-- Tab Pane -->
                             <div class="tab-pane fade show active" id="tabPaneGrid" role="tabpanel" aria-labelledby="tabPaneGrid">
                                 <div class="mb-4">
-                                    <input type="search" class="form-control" placeholder="Search Students" />
+                                    <form action="{{ route('admin.pre_registration.search_student') }}" method="get">
+                                        <input type="search" class="form-control" name="search_student" placeholder="Search Students" />
+                                    </form>
                                 </div>
                                 <div class="row">
 
-                                    <div class="col-xl-3 col-lg-6 col-md-6 col-12">
-                                        <!-- Card -->
-                                        <div class="card mb-4">
-                                            <!-- Card Body -->
-                                            <div class="card-body">
-                                                <div class="text-center">
-                                                    <div class="position-relative">
-                                                        <img src="../../assets/images/avatar/avatar-19.jpg" class="rounded-circle avatar-xl mb-3" alt="" />
-                                                        <a href="#" class="position-absolute mt-10 ms-n5">
-                                                            <span class="status bg-secondary"></span>
-                                                        </a>
+                                @isset($pre_registrations)
+
+                                        @foreach($pre_registrations as $pre_registration)
+                                            <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+                                                <!-- Card -->
+                                                <div class="card mb-4">
+                                                    <!-- Card Body -->
+                                                    <div class="card-body">
+                                                        <div class="text-center">
+                                                            <div class="position-relative d-flex justify-content-center">
+                                                                <img src="{{ asset('assets/student/'.$pre_registration->avatar.'') }}" class="rounded-circle avatar-xl mb-3" alt="" />
+                                                                <a href="#" class="position-absolute mt-10 ms-n5">
+                                                                    <span class="status bg-secondary"></span>
+                                                                </a>
+                                                            </div>
+                                                            <h4 class="mb-0">{{ $pre_registration->first_name }} {{ $pre_registration->last_name }} </h4>
+                                                            <p class="mb-0">
+                                                                <i class="fe fe-map-pin me-1 fs-6"></i>Morocco
+                                                            </p>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between border-bottom py-2 mt-6">
+                                                            <span>Payments</span>
+                                                            <span class="text-dark">$1,220</span>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between border-bottom py-2">
+                                                            <span>Joined :</span>
+                                                            <span>{{ $pre_registration->created_at }}</span>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between pt-2">
+                                                            <span>Courses</span>
+                                                            <span class="text-dark"> {{ $pre_registration->nbr_of_enrolled_course }} </span>
+                                                        </div>
+
                                                     </div>
-                                                    <h4 class="mb-0">Iman Ait</h4>
-                                                    <p class="mb-0">
-                                                        <i class="fe fe-map-pin me-1 fs-6"></i>Morocco
-                                                    </p>
-                                                </div>
-                                                <div class="d-flex justify-content-between border-bottom py-2 mt-6">
-                                                    <span>Payments</span>
-                                                    <span class="text-dark">$1,220</span>
-                                                </div>
-                                                <div class="d-flex justify-content-between border-bottom py-2">
-                                                    <span>Joined at</span>
-                                                    <span>15 Aug, 2020</span>
-                                                </div>
-                                                <div class="d-flex justify-content-between pt-2">
-                                                    <span>Courses</span>
-                                                    <span class="text-dark"> 12 </span>
+
                                                 </div>
 
                                             </div>
+                                        @endforeach
+                                @endisset
 
-                                        </div>
 
-                                    </div>
                                     <!-- -->
-                                    <div class="col-xl-3 col-lg-6 col-md-6 col-12">
-                                        <!-- Card -->
-                                        <div class="card mb-4">
-                                            <!-- Card Body -->
-                                            <div class="card-body">
-                                                <div class="text-center">
-                                                    <div class="position-relative">
-                                                        <img src="../../assets/images/avatar/avatar-19.jpg" class="rounded-circle avatar-xl mb-3" alt="" />
-                                                        <a href="#" class="position-absolute mt-10 ms-n5">
-                                                            <span class="status bg-secondary"></span>
-                                                        </a>
-                                                    </div>
-                                                    <h4 class="mb-0">Iman Ait</h4>
-                                                    <p class="mb-0">
-                                                        <i class="fe fe-map-pin me-1 fs-6"></i>Morocco
-                                                    </p>
-                                                </div>
-                                                <div class="d-flex justify-content-between border-bottom py-2 mt-6">
-                                                    <span>Payments</span>
-                                                    <span class="text-dark">$1,220</span>
-                                                </div>
-                                                <div class="d-flex justify-content-between border-bottom py-2">
-                                                    <span>Joined at</span>
-                                                    <span>15 Aug, 2020</span>
-                                                </div>
-                                                <div class="d-flex justify-content-between pt-2">
-                                                    <span>Courses</span>
-                                                    <span class="text-dark"> 12 </span>
-                                                </div>
 
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xl-3 col-lg-6 col-md-6 col-12">
-                                        <!-- Card -->
-                                        <div class="card mb-4">
-                                            <!-- Card Body -->
-                                            <div class="card-body">
-                                                <div class="text-center">
-                                                    <div class="position-relative">
-                                                        <img src="../../assets/images/avatar/avatar-19.jpg" class="rounded-circle avatar-xl mb-3" alt="" />
-                                                        <a href="#" class="position-absolute mt-10 ms-n5">
-                                                            <span class="status bg-secondary"></span>
-                                                        </a>
-                                                    </div>
-                                                    <h4 class="mb-0">Iman Ait</h4>
-                                                    <p class="mb-0">
-                                                        <i class="fe fe-map-pin me-1 fs-6"></i>Morocco
-                                                    </p>
-                                                </div>
-                                                <div class="d-flex justify-content-between border-bottom py-2 mt-6">
-                                                    <span>Payments</span>
-                                                    <span class="text-dark">$1,220</span>
-                                                </div>
-                                                <div class="d-flex justify-content-between border-bottom py-2">
-                                                    <span>Joined at</span>
-                                                    <span>15 Aug, 2020</span>
-                                                </div>
-                                                <div class="d-flex justify-content-between pt-2">
-                                                    <span>Courses</span>
-                                                    <span class="text-dark"> 12 </span>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xl-3 col-lg-6 col-md-6 col-12">
-                                        <!-- Card -->
-                                        <div class="card mb-4">
-                                            <!-- Card Body -->
-                                            <div class="card-body">
-                                                <div class="text-center">
-                                                    <div class="position-relative">
-                                                        <img src="../../assets/images/avatar/avatar-19.jpg" class="rounded-circle avatar-xl mb-3" alt="" />
-                                                        <a href="#" class="position-absolute mt-10 ms-n5">
-                                                            <span class="status bg-secondary"></span>
-                                                        </a>
-                                                    </div>
-                                                    <h4 class="mb-0">Iman Ait</h4>
-                                                    <p class="mb-0">
-                                                        <i class="fe fe-map-pin me-1 fs-6"></i>Morocco
-                                                    </p>
-                                                </div>
-                                                <div class="d-flex justify-content-between border-bottom py-2 mt-6">
-                                                    <span>Payments</span>
-                                                    <span class="text-dark">$1,220</span>
-                                                </div>
-                                                <div class="d-flex justify-content-between border-bottom py-2">
-                                                    <span>Joined at</span>
-                                                    <span>15 Aug, 2020</span>
-                                                </div>
-                                                <div class="d-flex justify-content-between pt-2">
-                                                    <span>Courses</span>
-                                                    <span class="text-dark"> 12 </span>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
                                 </div>
                                 <nav>
                                     <ul class="pagination justify-content-center pb-3 pt-4">
-                                        <li class="page-item disabled">
-                                            <a class="page-link mx-1 rounded" href="#" tabindex="-1" aria-disabled="true"><i class="mdi mdi-chevron-left"></i></a>
-                                        </li>
-                                        <li class="page-item active">
-                                            <a class="page-link mx-1 rounded" href="#">1</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link mx-1 rounded" href="#">2</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link mx-1 rounded" href="#">3</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link mx-1 rounded" href="#"><i class="mdi mdi-chevron-right"></i></a>
-                                        </li>
+                                        {{ $pre_registrations->links() }}
                                     </ul>
                                 </nav>
                             </div>

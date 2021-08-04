@@ -33,6 +33,9 @@
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css')  }}">
+    <!-- start with crop image -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css"/>
+
     <title>@yield('title')</title>
 
     <style>
@@ -319,6 +322,30 @@
          .mycard.bg3::after {
             background: #0fa49b;
         }
+         /*start with crop image*/
+        img {
+            display: block;
+            max-width: 100%;
+        }
+        .preview {
+            overflow: hidden;
+            width: 160px;
+            height: 160px;
+            margin: 10px;
+            border: 1px solid red;
+        }
+        .modal-lg{
+            max-width: 1000px !important;
+        }
+        h6.error_message{
+            display: none;
+        }
+        .get_success_message{
+            display: none;
+        }
+        .page-item {
+            margin-right: 10px !important;
+        }
     </style>
 </head>
 
@@ -365,6 +392,8 @@
 
 <!-- Theme JS -->
 <script src="{{ asset('assets/js/theme.min.js') }}"></script>
+<!-- start with crop image -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
 
 @yield('script')
 </body>

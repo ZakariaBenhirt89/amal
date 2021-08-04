@@ -35,9 +35,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
-            $table->enum('groups',['TARGA','GUILIZ']);
+            $table->enum('groups',['TARGA','GUILIZ'])->nullable();
             $table->enum('status',['is_inactive','is_active','is_pending']);
-            $table->enum('current_status',['studying','intern','working']);
+            $table->enum('current_status',['studying','intern','working'])->nullable();
             $table->enum('is_online',[0,1]);
             $table->timestamp('date_of_final_registrations')->nullable();
             $table->rememberToken();
