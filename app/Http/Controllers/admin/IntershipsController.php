@@ -13,4 +13,7 @@ class IntershipsController extends Controller
     public function create(){
         return view('admin.internship.create');
     }
+    public function store(Request $request){
+        return $request;
+    }
 }

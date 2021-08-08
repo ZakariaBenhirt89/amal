@@ -87,13 +87,36 @@ class Pre_registration_controller extends Controller
 
     }
     public function searchStudent(Request $request){
-        $search = $request->get('search_student');
-        $students = DB::table('users')->where('first_name','like','%' . $search . '%' )->paginate(10);
-        if ($students){
-            return view('admin.pre_registration.pre_registration_search',compact('students'));
-        }
+        $search = $request->search;
+
+        if($request->ajax())
+        {
+            $output="";
+
+
+            $students = User::where('first_name', 'like','%' . $request->search . '%' )->get();
+
+            if($students)
+            {
+                foreach ($students as $key => $student) {
+                    $output.='<tr>'.
+                        '<td>'.$student->id.'</td>'.
+                        '<td>'.$student->first_name.'</td>'.
+                        '<td>'.$student->last_name.'</td>'.
+                        '<td>'.$student->age.'</td>'.
+                        '</tr>';
+                }
+
+                return Response($output);
+
+
+
+            }else{
+               return "no!!!!";
+             }
     }
 
 
 
+}
 }
