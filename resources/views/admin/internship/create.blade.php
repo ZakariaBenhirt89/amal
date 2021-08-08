@@ -53,27 +53,28 @@
                                 <div>
 
                                     <!-- Form -->
-                                    <form class="row">
+                                    <form id="theForm" action="{{ route('admin.interships.store') }}" method="post" class="row">
                                         <!-- First name -->
+                                       @csrf
                                         <div class="mb-3 col-12 col-md-6">
                                             <label class="form-label" for="fname">Title</label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" placeholder="Title" required="">
+                                            <input type="text" id="fname" class="form-control form-control-sm" name="title" placeholder="Title" required="">
                                         </div>
                                         <!-- Last name -->
                                         <div class="mb-3 col-12 col-md-6">
                                             <label class="form-label" for="lname">Location</label>
-                                            <input type="text" id="lname" class="form-control form-control-sm" placeholder="Provided By" required="">
+                                            <input type="text" id="lname" class="form-control form-control-sm" name="location" placeholder="Provided By" required="">
                                         </div>
                                         <!-- Phone -->
 
                                         <!-- Birthday -->
                                         <div class="mb-3 col-12 col-md-6">
                                             <label class="form-label" for="birth">Start Internship</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="Start Internship" id="birth" name="birth" readonly="readonly">
+                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="Start Internship" id="birth" name="start" readonly="readonly">
                                         </div>
                                         <div class="mb-3 col-12 col-md-6">
                                             <label class="form-label" for="birth">End Internship</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="End Internship" id="birth" name="birth" readonly="readonly">
+                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="End Internship" id="birth" name="end" readonly="readonly">
                                         </div>
 
 
@@ -87,7 +88,7 @@
                                         <!-- Country -->
                                         <div class="mb-3 col-12 col-md-12">
                                             <label class="form-label" for="lname">Supervisor</label>
-                                            <input type="text" id="lname" class="form-control form-control-sm" placeholder="Supervisor" required="">
+                                            <input type="text" id="lname" class="form-control form-control-sm" placeholder="Supervisor" name="supervisor" required="">
                                         </div>
                                         <div class="mb-3 col-12 col-md-12">
                                             <div class="mb-3">
@@ -95,6 +96,7 @@
                                                 <div style="height: 99px !important;" id="editor">
 
                                                 </div>
+                                                <textarea class="form-control" name="editor" cols="10" hidden></textarea>
 
                                             </div>
                                         </div>
@@ -102,7 +104,7 @@
                                         <div class="mb-3 col-12 col-md-12">
                                             <div class="mb-3">
                                                 <label class="form-label">GuidLine</label>
-                                                <textarea class="form-control form-control-sm" cols="10"></textarea>
+                                                <textarea class="form-control form-control-sm" name="guidline" cols="10"></textarea>
 
                                             </div>
                                         </div>
@@ -126,5 +128,25 @@
 @endsection()
 
 @section('script')
+<script>
+    window.onload = function() {
+        var editor = document.getElementById('editor')
+   // let holder ;
+   //      editor.addEventListener('text-change', function (event){
+   //          event.preventDefault();
+   //          console.log( event.target.value );
+   //          holder = event.target.value;
+   //          console.log(holder);
+   //
+   //      });
+        document.getElementById('theForm').onsubmit = function() {
 
+            var editor = $("#editor").text();
+
+      //     var textarea = document.getElementsByName('editor');
+            $('[name="editor"]').val(editor)
+            return true;
+        };
+    };
+</script>
 @endsection

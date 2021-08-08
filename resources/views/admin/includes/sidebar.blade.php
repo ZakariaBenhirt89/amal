@@ -137,7 +137,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link " href="{{ route('admin.monitoring.create') }}">
-                                Add Monitoring
+                                Monitoring
                             </a>
                         </li>
 

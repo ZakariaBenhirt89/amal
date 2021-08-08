@@ -35,7 +35,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
             Route::get('/','App\Http\Controllers\admin\Pre_registration_controller@index')->name('admin.pre_registration');
             Route::get('/create','App\Http\Controllers\admin\Pre_registration_controller@create')->name('admin.pre_registration.create');
             Route::post('store-pre-registration','App\Http\Controllers\admin\Pre_registration_controller@store')->name('admin.pre_registration.store');
-            Route::get('/search','App\Http\Controllers\admin\Pre_registration_controller@searchStudent')->name('admin.pre_registration.search_student');
+            Route::post('/search','App\Http\Controllers\admin\Pre_registration_controller@searchStudent')->name('admin.pre_registration.search_student');
 
         });
 
@@ -59,11 +59,14 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
         Route::group(['prefix' => 'monitoring'], function () {
             Route::get('/create','App\Http\Controllers\admin\EvaluationController@create')->name('admin.monitoring.create');
+            Route::post('/store','App\Http\Controllers\admin\EvaluationController@store')->name('admin.monitoring.store');
+
         });
 
         Route::group(['prefix' => 'interships'], function () {
             Route::get('/','App\Http\Controllers\admin\IntershipsController@index')->name('admin.interships');
             Route::get('/create','App\Http\Controllers\admin\IntershipsController@create')->name('admin.interships.create');
+            Route::post('/store','App\Http\Controllers\admin\IntershipsController@store')->name('admin.interships.store');
         });
         Route::group(['prefix' => 'jobs_portal'], function () {
             Route::get('/','App\Http\Controllers\admin\JobsController@index')->name('admin.jobs_portal');

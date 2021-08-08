@@ -52,9 +52,9 @@
                             <!-- Tab Pane -->
                             <div class="tab-pane fade show active" id="tabPaneGrid" role="tabpanel" aria-labelledby="tabPaneGrid">
                                 <div class="mb-4">
-                                    <form action="{{ route('admin.pre_registration.search_student') }}" method="get">
-                                        <input type="search" class="form-control" name="search_student" placeholder="Search Students" />
-                                    </form>
+                                    <forms>
+                                        <input id="search" type="search" class="form-control" name="search_student" placeholder="Search Students" />
+                                    </forms>
                                 </div>
                                 <div class="row">
 
@@ -325,5 +325,74 @@
 @endsection()
 
 @section('script')
+<script>
+    $(document).ready(function(){
+        $('#search').on('keyup',function (){
+            var search =  $(this).val();
+            let img = '';
+            let firstName ;
+            let lastName ;
+            let time ;
+            let unrolledCourses ;
+            let cardUser = `<div class="card-body">
+                                                        <div class="text-center">
+                                                            <div class="position-relative d-flex justify-content-center">
+                                                                <img src="http://localhost:8000/public/assets/student/${img}" class="rounded-circle avatar-xl mb-3" alt="" />
+                                                                <a href="#" class="position-absolute mt-10 ms-n5">
+                                                                    <span class="status bg-secondary"></span>
+                                                                </a>
+                                                            </div>
+                                                            <h4 class="mb-0">${firstName} ${lastName} </h4>
+                                                            <p class="mb-0">
+                                                                <i class="fe fe-map-pin me-1 fs-6"></i>Morocco
+                                                            </p>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between border-bottom py-2 mt-6">
+                                                            <span>Payments</span>
+                                                            <span class="text-dark">$1,220</span>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between border-bottom py-2">
+                                                            <span>Joined :</span>
+                                                            <span>${time}</span>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between pt-2">
+                                                            <span>Courses</span>
+                                                            <span class="text-dark"> ${unrolledCourses} </span>
+                                                        </div>
 
+                                                    </div>
+`
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            });
+            $.ajax({
+                type : 'GET' ,
+                url : "{{ route('search') }}",
+                data : {"query" : search},
+                contentType: "application/json",
+                success: (response) => {
+                    console.log(response)
+                    response.forEach(el => {
+                        img = el['avatar']
+                        console.log(img)
+                        firstName = el['first_name']
+                        lastName = el['last_name']
+                        time = new Date("1996-10-02").getDate()
+                        unrolledCourses = el['id']
+                        $('.card').append(cardUser)
+                    })
+                },
+                error: function(response){
+                    alert('error');
+                }
+            })
+
+
+        });
+    });
+
+</script>
 @endsection
