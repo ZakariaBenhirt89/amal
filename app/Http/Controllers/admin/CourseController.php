@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
+use Dcblogdev\Dropbox\Facades\Dropbox;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use  Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+use Psy\Util\Str;
 
 class CourseController extends Controller
 {
@@ -26,25 +29,35 @@ class CourseController extends Controller
      */
     public function storeCource(Request $request){
         $input = $request->all();
+        Log::info(json_encode($input["courseThumbs"]));
+        if ($request->ajax()){
+            if (empty($request['courseThumbs'])){
+                Log::info('empty container');
 
-        if ($request->input('name','images_name[]')){
-            $target = $request->file('images_name[]');
-            if ($request->hasFile('images_name[]')){
-                Log::info("the file is there");
-            }else{
-                Log::info('notinhg there');
+            }else {
+                Log::info('not empty :)');
+                Log::info($request->getBaseUrl());
+                if ($request->hasFile('courseThumbs')){
+                    $size = $request->file('courseThumbs')->getSize() ;
+                    Log::info($size);
+                    $path =  $request->file('courseThumbs')->storeAs('thumbs', 'thums.jpg' , 'public');
+                    $result =  Dropbox::files()->upload('', '/home/zaki/projects/webprojects/lms_amal_tadribe/public/storage/'.$path );
+                    Log::info($result);
+                   // $path =  Storage::put('thumbs' , $request->file('courseThumbs') );
+                    Log::info($path);
+                    $results = Dropbox::files()->listContents('');
+                    Log::info($results);
+                }else {
+                    Log::info('the type not supported');
+                }
+
             }
-         //   $token = $target->extension();
-            Log::info( 'token');
-
-        }else{
-            Log::info('file not contained');
+            return response()->json([
+                'success'=>'Got Simple Ajax Request.',
+                'data' => $request->all(),
+            ]);
         }
-        Log::info('its working');
-       // error_log('this is nice');
-        return response()->json([
-            'success'=>'Got Simple Ajax Request.',
-            'data' => $request->all(),
-        ]);
+
+
     }
 }

@@ -52,7 +52,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
         Route::group(['prefix' => 'course'], function () {
             Route::get('/','App\Http\Controllers\admin\CourseController@index')->name('admin.course.index');
-            Route::get('/create','App\Http\Controllers\admin\CourseController@create')->name('admin.course.create');
+           Route::get('/create','App\Http\Controllers\admin\CourseController@create')->name('admin.course.create');
             Route::post('/store/cource','App\Http\Controllers\admin\CourseController@storeCource')->name('admin.course.store');
 
         });

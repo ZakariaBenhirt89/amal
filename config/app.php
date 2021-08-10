@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Vimeo\Laravel\VimeoServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */
