@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddQuizzeIdToCourcesTable extends Migration
+class CreateVideosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class AddQuizzeIdToCourcesTable extends Migration
      */
     public function up()
     {
-        Schema::table('cources', function (Blueprint $table) {
-            $table->unsignedInteger('quizze_id');
-            $table->foreign('quizze_id')->references('id')->on('quizzes');
-
+        Schema::create('videos', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -27,8 +26,6 @@ class AddQuizzeIdToCourcesTable extends Migration
      */
     public function down()
     {
-        Schema::table('cources', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('videos');
     }
 }
