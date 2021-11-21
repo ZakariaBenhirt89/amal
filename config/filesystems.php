@@ -41,13 +41,6 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
-        'student' => [
-            'driver' => 'local',
-            'root' => public_path('assets/student/'),
-            'url' => env('APP_URL').'/storage',
-            'visibility' => 'public',
-        ],
-
 
         's3' => [
             'driver' => 's3',
@@ -59,8 +52,18 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
+        'do-spaces' => [
+            'driver' => 's3',
+            'key' => env('DO_SPACES_ACCESS_KEY'),
+            'secret' => env('DO_SPACES_SECRET_ACCESS_KEY'),
+            'region' => 'nyc3', // can be anything
+            'bucket' => 'amalcenter',// your space name
+            'endpoint' => 'https://nyc3.digitaloceanspaces.com', // spaces endpoint (currently : `https://nyc3.digitaloceanspaces.com`)
+            'visibility' => 'public'
+        ],
 
     ],
+    'cloud' => env('FILESYSTEM_CLOUD', 'do-spaces'),
 
     /*
     |--------------------------------------------------------------------------

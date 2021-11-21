@@ -17,30 +17,15 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link   collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#settings" aria-expanded="false" aria-controls="settings">
-                    <i style="font-size: 20px;color: #ffd767;" class="fe fe-settings me-2"></i> Settings
-                </a>
-                <div id="settings" class="collapse " data-bs-parent="#sideNavbar">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link " href="../../pages/dashboard/admin-instructor.html">
-                                School Year
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link   collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#pre_reg" aria-expanded="false" aria-controls="settings">
-                    <img style="height: 19px;margin-right: 6px;" src="{{ asset('assets/images/registration.svg') }}" /> Pre-registration
+                    <img style="height: 19px;margin-right: 6px;" src="{{ asset('assets/images/student_1.svg') }}" /> Students
                 </a>
 
                 <div id="pre_reg" class="collapse " data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link " href="{{ route('admin.pre_registration') }}">
-                                All Pre-registration
+                            <a class="nav-link " href="{{ route('admin.student') }}">
+                                All Students
                             </a>
                         </li>
                         <li class="nav-item">
@@ -49,6 +34,26 @@
                             </a>
                         </li>
 
+                    </ul>
+
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link   collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#navProfile" aria-expanded="false" aria-controls="navProfile">
+                    <img style="height: 21px;margin-right: 5px;" src="{{ asset('assets/images/chef_3.svg') }}" /> Chefs
+                </a>
+                <div id="navProfile" class="collapse " data-bs-parent="#sideNavbar">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ route('admin.chiefs.index') }}">
+                                All Chiefs
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ route('admin.chiefs.create') }}">
+                                Add Chief
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </li>
@@ -60,44 +65,8 @@
                 <div class="navbar-heading">Amal Training</div>
             </li>
 
-
-            <li class="nav-item">
-                <a class="nav-link  collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#navCourses" aria-expanded="false" aria-controls="navCourses">
-                     <img style="height: 22px;margin-right: 5px;" src="{{ asset('assets/images/student_1.svg') }}" />
-                      Students
-                </a>
-                <div id="navCourses"  class="collapse "  data-bs-parent="#sideNavbar">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link " href="{{ route('admin.student') }}">
-                                All Students
-                            </a>
-                        </li>
-
-
-                    </ul>
-                </div>
-            </li>
             <!-- Nav item -->
-            <li class="nav-item">
-                <a class="nav-link   collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#navProfile" aria-expanded="false" aria-controls="navProfile">
-                    <img style="height: 21px;margin-right: 5px;" src="{{ asset('assets/images/chef_3.svg') }}" /> Chefs
-                </a>
-                <div id="navProfile" class="collapse " data-bs-parent="#sideNavbar">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link " href="{{ route('admin.chiefs.index') }}">
-                                All Chefs
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link " href="{{ route('admin.chiefs.create') }}">
-                              Add Chef
-                          </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+
 
 
             <!-- Nav item -->
@@ -110,7 +79,7 @@
                     aria-expanded="false"
                     aria-controls="navCMS"
                 >
-                    <img style="height: 21px;margin-right: 5px;" src="{{ asset('assets/images/online-course.svg') }}"> Courses
+                    <img style="height: 21px;margin-right: 5px;" src="{{ asset('assets/images/online-course.svg') }}"> Amal Courses
                 </a>
                 <div id="navCMS" class="collapse  " data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
@@ -128,39 +97,50 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link  collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#navSiteSetting" aria-expanded="false" aria-controls="navSiteSetting">
-                    <img style="height: 21px;margin-right: 5px;" src="{{ asset('assets/images/package.svg') }}" /> Monitoring
+            <li class="nav-item ">
+                <a
+                    class="nav-link   collapsed  "
+                    href="#!"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navCMS1"
+                    aria-expanded="false"
+                    aria-controls="navCMS1"
+                >
+                    <img style="height: 21px;margin-right: 5px;" src="{{ asset('assets/images/podcast.svg') }}"> Amal
+                    Podcasts
                 </a>
-                <div id="navSiteSetting" class="collapse " data-bs-parent="#sideNavbar">
+                <div id="navCMS1" class="collapse  " data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
-
                         <li class="nav-item">
-                            <a class="nav-link " href="{{ route('admin.monitoring.create') }}">
-                                Monitoring
+                            <a class="nav-link  active"  href="{{ route('admin.podcast.fetch') }}">
+                                All Podcasts
                             </a>
                         </li>
-
-
+                        <li class="nav-item">
+                            <a class="nav-link  " href="{{ route('admin.podcast.create') }}">
+                                Add Podcast
+                            </a>
+                        </li>
 
                     </ul>
                 </div>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link  collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#quiz" aria-expanded="false" aria-controls="quiz">
-                    <img style="height: 21px;margin-right: 5px;" src="{{ asset('assets/images/quiz.svg') }}" /> Quizzes
+                    <img style="height: 21px;margin-right: 5px;" src="{{ asset('assets/images/mat.svg') }}" /> Amal Materials
                 </a>
                 <div id="quiz" class="collapse " data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
-
                         <li class="nav-item">
-                            <a class="nav-link " href="#">
-                                All Quizzes
+                            <a class="nav-link " href="{{ route('admin.mat.show') }}">
+                                All Materials
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link " href="#">
-                                Add Quiz
+                            <a class="nav-link " href="{{ route('admin.mat.create') }}">
+                                Add Material
                             </a>
                         </li>
 
@@ -176,6 +156,34 @@
                 <div class="navbar-heading">Amal Follow-up</div>
             </li>
             <!-- Nav item -->
+            <li class="nav-item">
+                <a class="nav-link  collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#navSiteSetting" aria-expanded="false" aria-controls="navSiteSetting">
+                    <img style="height: 21px;margin-right: 5px;" src="{{ asset('assets/images/package.svg') }}" /> Monitoring
+                </a>
+                <div id="navSiteSetting" class="collapse " data-bs-parent="#sideNavbar">
+                    <ul class="nav flex-column">
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ route('admin.evaluation.index') }}">
+                                All Monitoring
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ route('admin.services.index') }}">
+                                All Services
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ route('admin.monitoring.create') }}">
+                                Add  Monitoring
+                            </a>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+            </li>
             <li class="nav-item">
                 <a class="nav-link  collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#navAuthentication" aria-expanded="false" aria-controls="navAuthentication">
                     <img style="height: 22px;margin-right: 6px;" src="{{ asset('assets/images/handshake.svg') }}">  InternShips

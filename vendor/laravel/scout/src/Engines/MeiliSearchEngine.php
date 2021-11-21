@@ -4,7 +4,8 @@ namespace Laravel\Scout\Engines;
 
 use Illuminate\Support\LazyCollection;
 use Laravel\Scout\Builder;
-use MeiliSearch\Client as MeiliSearch;
+use MeiliSearch\Client as MeiliSearchClient;
+use MeiliSearch\MeiliSearch;
 use MeiliSearch\Search\SearchResult;
 
 class MeiliSearchEngine extends Engine
@@ -30,7 +31,7 @@ class MeiliSearchEngine extends Engine
      * @param  bool  $softDelete
      * @return void
      */
-    public function __construct(MeiliSearch $meilisearch, $softDelete = false)
+    public function __construct(MeiliSearchClient $meilisearch, $softDelete = false)
     {
         $this->meilisearch = $meilisearch;
         $this->softDelete = $softDelete;
@@ -126,6 +127,13 @@ class MeiliSearchEngine extends Engine
     {
         $meilisearch = $this->meilisearch->index($builder->index ?: $builder->model->searchableAs());
 
+        // meilisearch-php 0.19.0 is compatible with meilisearch server 0.21.0...
+        if (version_compare(MeiliSearch::VERSION, '0.19.0') >= 0 && isset($searchParams['filters'])) {
+            $searchParams['filter'] = $searchParams['filters'];
+
+            unset($searchParams['filters']);
+        }
+
         if ($builder->callback) {
             $result = call_user_func(
                 $builder->callback,
@@ -149,6 +157,10 @@ class MeiliSearchEngine extends Engine
     protected function filters(Builder $builder)
     {
         $filters = collect($builder->wheres)->map(function ($value, $key) {
+            if (is_bool($value)) {
+                return sprintf('%s=%s', $key, $value ? 'true' : 'false');
+            }
+
             return is_numeric($value)
                             ? sprintf('%s=%s', $key, $value)
                             : sprintf('%s="%s"', $key, $value);
@@ -156,6 +168,10 @@ class MeiliSearchEngine extends Engine
 
         foreach ($builder->whereIns as $key => $values) {
             $filters->push(sprintf('(%s)', collect($values)->map(function ($value) use ($key) {
+                if (is_bool($value)) {
+                    return sprintf('%s=%s', $key, $value ? 'true' : 'false');
+                }
+
                 return filter_var($value, FILTER_VALIDATE_INT) !== false
                                 ? sprintf('%s=%s', $key, $value)
                                 : sprintf('%s="%s"', $key, $value);
@@ -168,6 +184,8 @@ class MeiliSearchEngine extends Engine
     /**
      * Pluck and return the primary keys of the given results.
      *
+     * This expects the first item of each search item array to be the primary key.
+     *
      * @param  mixed  $results
      * @return \Illuminate\Support\Collection
      */
@@ -178,9 +196,24 @@ class MeiliSearchEngine extends Engine
         }
 
         $hits = collect($results['hits']);
+
         $key = key($hits->first());
 
         return $hits->pluck($key)->values();
+    }
+
+    /**
+     * Pluck and the given results with the given primary key name.
+     *
+     * @param  mixed  $results
+     * @param  string  $key
+     * @return \Illuminate\Support\Collection
+     */
+    public function mapIdsFrom($results, $key)
+    {
+        return count($results['hits']) === 0
+                ? collect()
+                : collect($results['hits'])->pluck($key)->values();
     }
 
     /**

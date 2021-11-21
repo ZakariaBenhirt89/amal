@@ -1,4 +1,3 @@
-
 @extends('admin.admin_layouts')
 @section('title', 'Admin Dashboard')
 @section('content')
@@ -61,7 +60,7 @@
                             </div>
                             <!-- Card body -->
                             <div class="card-body">
-                           <!--      <div class="d-lg-flex align-items-center justify-content-between">
+                            <!--      <div class="d-lg-flex align-items-center justify-content-between">
                                     <div class="d-flex align-items-center mb-4 mb-lg-0">
                                         <img src="{{ asset('assets/images/avatar/avatar-3.jpg') }}" id="img-uploaded" class="avatar-xl rounded-circle" alt="">
                                         <div class="ms-3">
@@ -76,7 +75,8 @@
                                         <a href="#" class="btn btn-outline-danger btn-sm">Delete</a>
                                     </div>
                                 </div>
-                                <hr class="my-5"> -->
+
+<hr class="my-5"> -->
                                 <div>
 
                                     <!--    <h4 class="mb-0">Personal Details</h4>
@@ -84,190 +84,64 @@
                                         Edit your personal information and address.
                                     </p> Form -->
                                     <form action="{{ route('admin.monitoring.store') }}" method="post" class="row">
-                                       @csrf
-                                        <!-- First name -->
+                                    @csrf
+                                    <!-- First name -->
                                         <div class="mb-3 col-12 col-md-12">
-                                            <label class="form-label" for="fname">Intern's Name </label>
-                                            <select id="fname" name="student_id" class="form-control form-control-sm" required>
+                                            <label class="form-label" for="student">Intern's Name </label>
+
+                                            <select id="student" name="student_id" class="form-control form-control-sm" required>
                                                 <option value="">Intern's Name</option>
-                                                <option value="1">Intern's Name 1</option>
-                                                <option value="2">Intern's Name 2</option>
+                                                @isset($users)
+                                                    @foreach($users as $user)
+                                                        <option value="{{ $user->id }}">{{$user->first_name}} {{$user->last_name}}</option>
+                                                    @endforeach
+                                                @endisset()
+
+
                                             </select>
                                         </div>
                                         <!-- Last name -->
 
                                         <!-- Phone -->
-                                        <h6 style="background: #18113c;color: #FFF;" class="mb-2 display-4 text-center">Label 1 </h6>
+
 
                                         <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Label </label>
-                                            <input type="text" id="Label" class="form-control form-control-sm" name="label[]" value="Garde Manger" placeholder="Label" required />
+                                            <label class="form-label" for="fname">Service </label>
+                                            <select id="service" name="service" class="form-control form-control-sm" required>
+
+                                                  @if( \App\Models\admin\Service::all()->count() > 0)
+                                                        @foreach( \App\Models\admin\Service::all() as $service)
+                                                            <option value="{{ $service->id }}">{{ $service->service_name }}</option>
+                                                        @endforeach
+                                                    @else
+                                                        <option value="1000">No service please set one</option>
+                                                      @endif
+
+
+                                            </select>                                        </div>
+                                        <div class="mb-3 col-12 col-md-6">
+                                            <label class="form-label" for="Supervisor">Supervisor </label>
+                                            <input type="text" id="Supervisor" class="form-control form-control-sm" name="Supervisor" value="" placeholder="Supervisor" required />
                                         </div>
                                         <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Note </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="note[]" placeholder="Note" required />
+                                            <label class="form-label" for="supervisor_email">Supervisor Email </label>
+                                            <input type="text" id="supervisor_email" class="form-control form-control-sm" name="supervisor_email" value="" placeholder="supervisor email" required />
                                         </div>
                                         <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">Start of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input"  type="text" placeholder="Start of rotation" id="birth" name="start[]" readonly required />
+                                            <label class="form-label" for="supervisor_phone">Supervisor Phone </label>
+                                            <input type="text" id="supervisor_phone" class="form-control form-control-sm" name="supervisor_phone" value="" placeholder="supervisor phone" required />
                                         </div>
                                         <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">End of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="End of rotation" id="birth" name='end[]' readonly required />
-                                        </div>
-                                        <h6 style="background: #18113c;color: #FFF;" class="mb-2 display-4  text-center">Label 2 </h6>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Label </label>
-                                            <input type="text" id="label" class="form-control form-control-sm" name="label[]" placeholder="Note " value="Service et Passe" required>
+                                            <label class="form-label" for="start">Start Rotation </label>
+                                            <input type="text" id="start" class="form-control form-control-sm flatpickr flatpickr-input active input" name="start" value="" placeholder="Start Rotation" required />
                                         </div>
                                         <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Note </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="note[]" placeholder="Note" required />
+                                            <label class="form-label" for="end">End Rotation </label>
+                                            <input type="text" id="end" class="form-control form-control-sm flatpickr flatpickr-input active input" name="end" value="" placeholder="End Rotation" required />
                                         </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">Start of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="Start of rotation" id="birth" name="start[]" readonly required />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">End of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="End of rotation" id="birth" name='end[]' readonly required />
-                                        </div>
-                                        <h6 style="background: #18113c;color: #FFF;" class="mb-2 display-4  text-center">Label 3</h6>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Label </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="label[]" value="Cuisine Internationale" placeholder="Note " required>
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Note </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="note[]" placeholder="Note " >
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">Start of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="Start of rotation" id="birth" name="start[]" readonly required />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">End of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="End of rotation" id="birth" name='end[]' readonly required />
-                                        </div>
-                                        <h6 style="background: #18113c;color: #FFF;" class="mb-2 display-4  text-center">Label 4</h6>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Label </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="label[]" value="Cuisine Marocaine" placeholder="Note " required />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Note </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="note[]" placeholder="Note " >
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">Start of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="Start of rotation" id="birth" name="start[]" readonly required />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">End of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="End of rotation" id="birth" name='end[]' readonly required />
-                                        </div>
-                                        <h6 style="background: #18113c;color: #FFF;" class="mb-2 display-4  text-center">Label 5</h6>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Label </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="label[]" value="Plonge" placeholder="Note" required />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Note </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="note[]" placeholder="Note " required>
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">Start of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="Start of rotation" id="birth" name="start[]" readonly="readonly" required />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">End of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="End of rotation" id="birth" name='end[]' readonly="readonly" required />
-                                        </div>
-                                        <h6 style="background: #18113c;color: #FFF;" class="mb-2 display-4  text-center">Label 6</h6>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Label </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="label[]" value="Economat-Café" placeholder="Note " required=>
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Note </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="note[]" placeholder="Note">
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">Start of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="Start of rotation" id="birth" name="start[]" readonly="readonly" required />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">End of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="End of rotation" id="birth" name='end[]' readonly="readonly" required />
-                                        </div>
-                                        <h6 style="background: #18113c;color: #FFF;" class="mb-2 display-4  text-center">Label 7</h6>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Label </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="label[]" value="Boulangerie" placeholder="Note " required />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Note </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="note[]" placeholder="Note"  required />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">Start of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="Start of rotation" id="birth" name="start[]" readonly="readonly" required />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">End of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="End of rotation" id="birth" name='end[]' readonly="readonly" required />
-                                        </div>
-                                        <h6 style="background: #18113c;color: #FFF;" class="mb-2 display-4  text-center">Label 8</h6>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Label </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="label[]" value="Pâtisserie M." placeholder="Note " required />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Note </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="note[]" placeholder="Note " >
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">Start of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="Start of rotation" id="birth" name="start[]" readonly="readonly" required />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">End of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="End of rotation" id="birth" name='end[]' readonly="readonly" required />
-                                        </div>
-                                        <h6 style="background: #18113c;color: #FFF;" class="mb-2 display-4  text-center">Label 9</h6>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Label </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="label[]" value="Passe" placeholder="Note " required="">
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Note </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="note[]" placeholder="Note " >
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">Start of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="Start of rotation" id="birth" name="start[]" readonly="readonly" required />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">End of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="End of rotation" id="birth" name='end[]' readonly="readonly" required />
-                                        </div>
-                                        <h6 style="background: #18113c;color: #FFF;" class="mb-2 display-4 text-center">Label 10</h6>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Label </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="label[]" value="Pâtisserie Internationale" placeholder="Note " required />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="fname">Note </label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="note[]" placeholder="Note" required />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">Start of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="Start of rotation" id="birth" name="start[]" readonly="readonly" required />
-                                        </div>
-                                        <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="birth">End of rotation</label>
-                                            <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="End of rotation" id="birth" name='end[]' readonly="readonly" required />
-                                        </div>
+
+
+
 
 
 
@@ -291,14 +165,12 @@
 
                                                                     </div>
                                                                 </td>
-
-
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <div style="margin-bottom: 20px;text-align: center">
-                                                                        <input type="button" id="btnAddNew" value="Monitoring" style="font-size: 14px;border-radius:3px;" class="btn btn-outline-dark">
-                                                                    </div>
+                                                                    {{--                                                                    <div style="margin-bottom: 20px;text-align: center">--}}
+                                                                    {{--                                                                        <input type="button" id="btnAddNew" value="Monitoring" style="font-size: 14px;border-radius:3px;" class="btn btn-outline-dark">--}}
+                                                                    {{--                                                                    </div>--}}
                                                                 </td>
                                                             </tr>
                                                             </tbody>
@@ -353,7 +225,7 @@
 
                 var trNew = "";
 
-                var addLink = "<div class=\"upload-btn" + rowNumber + "\"><h6 style='background: #18113c;color: #FFF;width: 108%;' class='mb-2 display-4  text-center'>Label " +`${k}`+ "</h6><div class='row'> <div class='mb-3 col-12 col-md-6'><label class='form-label' for='fname'"+`${k}`+">Label </label> <input type='text' id='fname'"+`${k}`+" class='form-control form-control-sm' name='label[]' value='' placeholder='Note' required></div><div class='mb-3 col-12 col-md-6'><label class='form-label' for='fname'>Note </label> <input type='text' id='fname' class='form-control form-control-sm' name='note[]' placeholder='Note' required> </div><div class='mb-3 col-12 col-md-6'><label class='form-label' for='birth'>Start of rotation</label><input class='form-control form-control-sm flatpickr flatpickr-input active' type='text' placeholder='Start of rotation' id='birth' name='start[]' readonly='readonly' required /></div><div class='mb-3 col-12 col-md-6'><label class='form-label' for='birth'>End of rotation</label> <input class='form-control form-control-sm flatpickr flatpickr-input' type='text' placeholder='End of rotation' id='birth' name='end[]' readonly='readonly' required /></div> </div></div>";
+                var addLink = "<div class=\"upload-btn" + rowNumber + "\"><h6 style='background: #18113c;color: #FFF;width: 108%;' class='mb-2 display-4  text-center'>Label " +${k}+ "</h6><div class='row'> <div class='mb-3 col-12 col-md-6'><label class='form-label' for='fname'"+${k}+">Label </label> <input type='text' id='fname'"+${k}+" class='form-control form-control-sm' name='label[]' value='' placeholder='Note' required></div><div class='mb-3 col-12 col-md-6'><label class='form-label' for='fname'>Note </label> <input type='text' id='fname' class='form-control form-control-sm' name='note[]' placeholder='Note' required> </div><div class='mb-3 col-12 col-md-6'><label class='form-label' for='birth'>Start of rotation</label><input class='form-control form-control-sm flatpickr flatpickr-input active' type='text' placeholder='Start of rotation' id='birth' name='start[]' readonly='readonly' required /></div><div class='mb-3 col-12 col-md-6'><label class='form-label' for='birth'>End of rotation</label> <input class='form-control form-control-sm flatpickr flatpickr-input' type='text' placeholder='End of rotation' id='birth' name='end[]' readonly='readonly' required /></div> </div></div>";
 
                 var deleteRow = "<a style='position:relative;top: -6px;' href=\"javascript:void()\" class=\"Delete btn btn-danger btn-xs\">X</a>";
 
@@ -363,11 +235,10 @@
                 trNew += "<td style=\"width:28px;\">" + deleteRow + "</td>";
 
                 trNew = trNew + " </tr>";
-
                 $("#ProductTable tbody").append(trNew);
-                 document.querySelectorAll('.flatpickr').flatpickr({altInput: true,
-                     altFormat: "F j, Y",
-                     dateFormat: "Y-m-d",})
+                document.querySelectorAll('.flatpickr').flatpickr({altInput: true,
+                    altFormat: "F j, Y",
+                    dateFormat: "Y-m-d",})
 
 
             });

@@ -22,12 +22,10 @@ class CreateCourcesTable extends Migration
             $table->string('thumbline');
             $table->string('preview');
             $table->string('instructure');
-            $table->string('video');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
 
         });
+
     }
 
     /**

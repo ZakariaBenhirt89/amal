@@ -86,8 +86,12 @@
 
                                 <div class="card-body">
                                     <div class="d-lg-flex align-items-center justify-content-between">
+                                        <div style="width: 50%;" class="input-group">
+                                            <input type="file" name="image" class="form-control image" id="inputLogo">
+                                            <label class="input-group-text" for="inputLogo">Upload</label>
+                                        </div>
                                         <div class="d-flex align-items-center mb-4 mb-lg-0">
-                                            <input type="file" name="image" class="image">
+
                                             <div class="ms-3">
                                                 <h4 class="mb-0">Your avatar</h4>
                                                 <p class="mb-0">
@@ -97,9 +101,7 @@
                                         </div>
 
                                     </div>
-                                    <h6 class="error_message" style="margin-top:5px; font-weight: bold;background: antiquewhite;padding: 6px;width: 50%;">
-                                        <span class="text-danger error-text image_error"></span>
-                                    </h6>
+
                                     <hr class="my-5">
                                     <div>
                                         <h4 class="mb-0">Personal Details</h4>
@@ -127,22 +129,13 @@
                                                 </h6>
                                             </div>
 
-                                            <!-- Phone -->
-                                            <div class="mb-3 col-12 col-md-6">
-                                                <label class="form-label" for="phone">Phone Number</label>
-                                                <input type="text" id="phone" name="phone" class="form-control form-control-sm phone" placeholder="Phone" required="">
-                                                <h6 class="error_message" style="margin-top:5px; font-weight: bold;background: antiquewhite;padding: 6px;width: 50%;">
-                                                    <span class="text-danger error-text phone_error"></span>
-                                                </h6>
-                                            </div>
+
 
                                             <!-- Birthday -->
                                             <div class="mb-3 col-12 col-md-6">
                                                 <label class="form-label" for="birth">Birthday</label>
                                                 <input class="form-control form-control-sm flatpickr flatpickr-input birth" type="text" name="birth" placeholder="Birth of Date" id="birth"  readonly="readonly">
-                                                <h6 class="error_message" style="margin-top:5px; font-weight: bold;background: antiquewhite;padding: 6px;width: 50%;">
-                                                    <span class="text-danger error-text birth_error"></span>
-                                                </h6>
+
                                             </div>
 
                                             <div class="mb-3 col-12 col-md-6">
@@ -152,18 +145,10 @@
                                                     <option value="1">Female</option>
                                                     <option value="2">Male</option>
                                                 </select>
-                                                <h6 class="error_message" style="margin-top:5px; font-weight: bold;background: antiquewhite;padding: 6px;width: 50%;">
-                                                    <span class="text-danger error-text gender_error"></span>
-                                                </h6>
+
                                             </div>
 
-                                            <div class="mb-3 col-12 col-md-6">
-                                                <label class="form-label" for="birth">Email</label>
-                                                <input class="form-control form-control-sm email" type="email" placeholder="email" id="email" name="email" />
-                                                <h6 class="error_message" style="margin-top:5px; font-weight: bold;background: antiquewhite;padding: 6px;width: 50%;">
-                                                    <span class="text-danger error-text email_error"></span>
-                                                </h6>
-                                            </div>
+
 
                                             <div class="mb-3 col-12 col-md-6">
                                                 <label class="form-label">Select Center</label>
@@ -172,9 +157,7 @@
                                                     <option value="1">Center Gueliz</option>
                                                     <option value="2">Center Targa</option>
                                                 </select>
-                                                <h6 class="error_message" style="margin-top:5px; font-weight: bold;background: antiquewhite;padding: 6px;width: 50%;">
-                                                    <span class="text-danger error-text center_error"></span>
-                                                </h6>
+
                                             </div>
 
                                             <div class="mb-3 col-12 col-md-12">

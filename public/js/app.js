@@ -3802,6 +3802,25 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
+FilePond.registerPlugin(FilePondPluginImagePreview, FilePondPluginImageExifOrientation, FilePondPluginFileValidateSize);
+console.log(FilePond);
+var filepondElm = document.querySelector('.filepond');
+console.log('this the url ' + filepondElm.dataset.url);
+FilePond.setOptions({
+  server: {
+    url: 'http://localhost:8000',
+    process: {
+      url: "/".concat(filepondElm.dataset.url),
+      method: 'POST',
+      headers: {
+        'Access-Control-Allow-Origin': 'http://localhost:8000/upload | *',
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        'Methods': 'POST'
+      }
+    }
+  }
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -3824,14 +3843,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
-// import Echo from 'laravel-echo';
-// window.Pusher = require('pusher-js');
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     forceTLS: true
-// });
 
 /***/ }),
 

@@ -56,14 +56,34 @@
                                     <form id="theForm" action="{{ route('admin.interships.store') }}" method="post" class="row">
                                         <!-- First name -->
                                        @csrf
+                                        <div class="mb-3 col-12 col-md-12">
+                                            <label class="form-label" for="student">Intern's Name </label>
+
+                                            <select id="student" name="student_id" class="form-control form-control-sm" required="">
+                                                <option value="">Select Intern's Name</option>
+                                                @isset($users)
+
+                                                    @foreach($users as $user)
+                                                        <option value="{{ $user->id }}">{{ $user->first_name }} {{ $user->last_name }}</option>
+                                                    @endforeach
+                                                @endisset
+
+                                            </select>
+                                        </div>
                                         <div class="mb-3 col-12 col-md-6">
                                             <label class="form-label" for="fname">Title</label>
-                                            <input type="text" id="fname" class="form-control form-control-sm" name="title" placeholder="Title" required="">
+                                            <input type="text" id="fname" class="form-control form-control-sm" name="title" placeholder="Title" >
+                                            @if ($errors->has('title'))
+                                                <span style="font-weight: bold;" class="text-danger">{{ $errors->first('title') }}</span>
+                                            @endif
                                         </div>
                                         <!-- Last name -->
                                         <div class="mb-3 col-12 col-md-6">
-                                            <label class="form-label" for="lname">Location</label>
-                                            <input type="text" id="lname" class="form-control form-control-sm" name="location" placeholder="Provided By" required="">
+                                            <label class="form-label" for="lname">Interships Provided</label>
+                                            <input type="text" id="lname" class="form-control form-control-sm" name="location" placeholder="Interships Provided" >
+                                            @if ($errors->has('location'))
+                                                <span style="font-weight: bold;" class="text-danger">{{ $errors->first('location') }}</span>
+                                            @endif
                                         </div>
                                         <!-- Phone -->
 
@@ -71,10 +91,16 @@
                                         <div class="mb-3 col-12 col-md-6">
                                             <label class="form-label" for="birth">Start Internship</label>
                                             <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="Start Internship" id="birth" name="start" readonly="readonly">
+                                            @if ($errors->has('start'))
+                                                <span style="font-weight: bold;" class="text-danger">{{ $errors->first('start') }}</span>
+                                            @endif
                                         </div>
                                         <div class="mb-3 col-12 col-md-6">
                                             <label class="form-label" for="birth">End Internship</label>
                                             <input class="form-control form-control-sm flatpickr flatpickr-input" type="text" placeholder="End Internship" id="birth" name="end" readonly="readonly">
+                                            @if ($errors->has('end'))
+                                                <span style="font-weight: bold;" class="text-danger">{{ $errors->first('end') }}</span>
+                                            @endif
                                         </div>
 
 
@@ -86,9 +112,26 @@
                                         <!-- State -->
 
                                         <!-- Country -->
-                                        <div class="mb-3 col-12 col-md-12">
+                                        <div class="mb-3 col-12 col-md-6">
                                             <label class="form-label" for="lname">Supervisor</label>
-                                            <input type="text" id="lname" class="form-control form-control-sm" placeholder="Supervisor" name="supervisor" required="">
+                                            <input type="text" id="lname" class="form-control form-control-sm" placeholder="Supervisor" name="supervisor" >
+                                            @if ($errors->has('supervisor'))
+                                                <span style="font-weight: bold;" class="text-danger">{{ $errors->first('supervisor') }}</span>
+                                            @endif
+                                        </div>
+                                        <div class="mb-3 col-12 col-md-6">
+                                            <label class="form-label" for="supervisor_email">Supervisor Email</label>
+                                            <input type="text" id="supervisor_email" class="form-control form-control-sm" placeholder="supervisor email" name="supervisor_email" >
+                                            @if ($errors->has('supervisor_email'))
+                                                <span style="font-weight: bold;" class="text-danger">{{ $errors->first('supervisor_email') }}</span>
+                                            @endif
+                                        </div>
+                                        <div class="mb-3 col-12 col-md-6">
+                                            <label class="form-label" for="supervisor_email">Supervisor Phone</label>
+                                            <input type="text" id="supervisor_phone" class="form-control form-control-sm" placeholder="supervisor phone" name="supervisor_phone" >
+                                            @if ($errors->has('supervisor_phone'))
+                                                <span style="font-weight: bold;" class="text-danger">{{ $errors->first('supervisor_phone') }}</span>
+                                            @endif
                                         </div>
                                         <div class="mb-3 col-12 col-md-12">
                                             <div class="mb-3">
@@ -112,7 +155,7 @@
                                         <div class="col-12">
                                             <!-- Button -->
                                             <button class="btn btn-primary" type="submit">
-                                                Add Chef
+                                                Add InternShip
                                             </button>
                                         </div>
                                     </form>
@@ -140,11 +183,17 @@
    //
    //      });
         document.getElementById('theForm').onsubmit = function() {
-
-            var editor = $("#editor").text();
-
+            var editor = $("#editor").html();
+        console.log( editor );
       //     var textarea = document.getElementsByName('editor');
-            $('[name="editor"]').val(editor)
+
+            var quill = new Quill('#editor', {
+                theme: 'snow'
+            });
+            var editor_content = quill.root.innerHTML
+            console.log('************')
+            console.log(editor_content)
+            $('[name="editor"]').text(editor_content)
             return true;
         };
     };

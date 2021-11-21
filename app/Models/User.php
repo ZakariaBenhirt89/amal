@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\admin\Interships;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,7 +11,7 @@ use Laravel\Scout\Searchable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable , Searchable;
+    use HasFactory, Notifiable ;
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +22,7 @@ class User extends Authenticatable
     protected $fillable = [
         'first_name',
         'last_name',
+        'birth',
         'avatar',
         'age',
         'family_situation',
@@ -32,6 +34,8 @@ class User extends Authenticatable
         'scolarity_level',
         'phone',
         'parent_phone',
+        'address',
+        'editor',
         'email',
         'password',
         'groups',
@@ -39,8 +43,11 @@ class User extends Authenticatable
         'current_status',
         'is_online',
         'date_of_final_registrations',
-
     ];
+    public function interships(){
+        return $this->belongsTo(Interships::class, 'student_id');
+    }
+
 
     /**
      * The attributes that should be hidden for arrays.

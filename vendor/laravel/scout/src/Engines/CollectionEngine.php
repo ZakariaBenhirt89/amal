@@ -110,17 +110,23 @@ class CollectionEngine extends Engine
             return $models;
         }
 
-        $columns = array_keys($models->first()->toSearchableArray());
-
-        return $models->filter(function ($model) use ($builder, $columns) {
+        return $models->filter(function ($model) use ($builder) {
             if (! $model->shouldBeSearchable()) {
                 return false;
             }
 
-            foreach ($columns as $column) {
-                $attribute = $model->{$column};
+            if (! $builder->query) {
+                return true;
+            }
 
-                if (Str::contains(Str::lower($attribute), Str::lower($builder->query))) {
+            $searchables = $model->toSearchableArray();
+
+            foreach ($searchables as $value) {
+                if (! is_scalar($value)) {
+                    $value = json_encode($value);
+                }
+
+                if (Str::contains(Str::lower($value), Str::lower($builder->query))) {
                     return true;
                 }
             }

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/lms_amal_tadribe.iml" filepath="$PROJECT_DIR$/.idea/lms_amal_tadribe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/lms_amal_tadribe_beta.iml" filepath="$PROJECT_DIR$/.idea/lms_amal_tadribe_beta.iml" />
     </modules>
   </component>
 </project>

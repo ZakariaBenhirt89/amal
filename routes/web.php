@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/login/student', 'App\Http\Controllers\Auth\AuthenticatedSessionController@showStudentLoginForm')->name('student.login');
+Route::post('/logout/student', 'App\Http\Controllers\student\StudentDashboardController@logout_student')->name('logout.student');
 
 
 
@@ -40,7 +41,29 @@ Route::get('/',function(){
 Route::group(['middleware' => 'auth:web'], function () {
     Route::group(['prefix' => 'student'], function () {
         Route::get('/dashboard/','App\Http\Controllers\student\StudentDashboardController@index')->name('student.dashboard');
+        Route::get('/monitorings/','App\Http\Controllers\student\StudentMonitorings@index')->name('student.monitorings');
+        Route::get('/certification/','App\Http\Controllers\student\StudentCoursecontroller@handle')->name('student.certification');
 
+
+        /*interships student */
+        Route::get('/interships/','App\Http\Controllers\student\StudentInterships@index')->name('student.interships');
+        Route::get('/interships/details/{id}','App\Http\Controllers\student\StudentInterships@more_details')->name('student.interships.deatails');
+        Route::get('/interships/accepte/{id}','App\Http\Controllers\student\StudentInterships@accepte')->name('student.interships.accepte');
+        Route::get('/interships/refuser/{id}','App\Http\Controllers\student\StudentInterships@refuser')->name('student.interships.refuser');
+        /*interships student */
+
+        /*jobs student */
+        Route::get('/jobs/','App\Http\Controllers\student\StudentJobs@index')->name('student.jobs');
+        Route::get('/jobs/accepte/{id}','App\Http\Controllers\student\StudentJobs@accepte')->name('student.jobs.accepte');
+        Route::get('/jobs/refuse/{id}','App\Http\Controllers\student\StudentJobs@refuse')->name('student.jobs.refuse');
+        /*jobs student */
+        /*courses & quizzes */
+        Route::get('/course/view','App\Http\Controllers\student\StudentCoursecontroller@index')->name('student.course.index');
+        Route::get('/course/enroll','App\Http\Controllers\student\StudentCoursecontroller@enroll')->name('student.course.enroll');
+        Route::get('/course/complete','App\Http\Controllers\student\StudentCoursecontroller@complete')->name('student.course.complete');
+        /*start with monitoring + interships*/
+        Route::get('/All/Jobs','App\Http\Controllers\student\AllController@index')->name('student.all.jobs');
+        /*start with monitoring + interships*/
 
     });
 });

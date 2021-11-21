@@ -10,6 +10,7 @@
     <!-- Favicon icon-->
     <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon/favicon.ico">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Libs CSS -->
 
@@ -66,8 +67,8 @@
                     </div>
                     <!-- Form -->
                     <form method="post" action="{{ route('admin.send.login') }}">
-                        @csrf
                         <!-- Username -->
+                        @csrf
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" id="email" class="form-control form-control-sm" name="email" placeholder="Email address here"

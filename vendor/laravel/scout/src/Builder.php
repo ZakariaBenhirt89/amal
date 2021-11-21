@@ -5,6 +5,7 @@ namespace Laravel\Scout;
 use Illuminate\Container\Container;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
 
 class Builder
@@ -318,6 +319,41 @@ class Builder
     }
 
     /**
+     * Paginate the given query into a simple paginator with raw data.
+     *
+     * @param  int  $perPage
+     * @param  string  $pageName
+     * @param  int|null  $page
+     * @return \Illuminate\Contracts\Pagination\Paginator
+     */
+    public function simplePaginateRaw($perPage = null, $pageName = 'page', $page = null)
+    {
+        $engine = $this->engine();
+
+        $page = $page ?: Paginator::resolveCurrentPage($pageName);
+
+        $perPage = $perPage ?: $this->model->getPerPage();
+
+        $results = $engine->paginate($this, $perPage, $page);
+
+        $total = $engine->getTotalCount($rawResults);
+
+        $hasMorePages = ($perPage * $page) < $engine->getTotalCount($rawResults);
+
+        $paginator = Container::getInstance()->makeWith(Paginator::class, [
+            'items' => $results,
+            'perPage' => $perPage,
+            'currentPage' => $page,
+            'options' => [
+                'path' => Paginator::resolveCurrentPath(),
+                'pageName' => $pageName,
+            ],
+        ])->hasMorePagesWhen($hasMorePages);
+
+        return $paginator->appends('query', $this->query);
+    }
+
+    /**
      * Paginate the given query into a paginator.
      *
      * @param  int  $perPage
@@ -352,7 +388,7 @@ class Builder
     }
 
     /**
-     * Paginate the given query into a simple paginator with raw data.
+     * Paginate the given query into a paginator with raw data.
      *
      * @param  int  $perPage
      * @param  string  $pageName
@@ -399,7 +435,10 @@ class Builder
             return $totalCount;
         }
 
-        $ids = $engine->mapIds($results)->all();
+        $ids = $engine->mapIdsFrom(
+            $results,
+            Str::afterLast($this->model->getScoutKeyName(), '.')
+        )->all();
 
         if (count($ids) < $totalCount) {
             $ids = $engine->keys(tap(clone $this, function ($builder) use ($totalCount) {

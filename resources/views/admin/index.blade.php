@@ -43,10 +43,9 @@
                                     </div>
                                 </div>
                                 <h2 class="fw-bold mb-1">
-                                   9
+                                    {{ \App\Models\User::all()->count() }}
                                 </h2>
-                                <span class="text-success fw-semi-bold"><i class="fe fe-trending-up me-1"></i>+20.9$</span>
-                                <span class="ms-1 fw-medium">Number of sales</span>
+
                             </div>
                         </div>
                     </div>
@@ -65,10 +64,9 @@
                                     </div>
                                 </div>
                                 <h2 class="fw-bold mb-1">
-                                   6
+                                    {{ \App\Models\admin\cheif::all()->count() }}
                                 </h2>
-                                <span class="text-danger fw-semi-bold">120+</span>
-                                <span class="ms-1 fw-medium">Number of pending</span>
+
                             </div>
                         </div>
                     </div>
@@ -82,13 +80,12 @@
                                         <span style="font-size: 16px !important;" class="fs-6 text-uppercase fw-semi-bold">Courses</span>
                                     </div>
                                     <div>
-                                        <img height="40px" src="{{ asset('assets/images/course_dashboard.svg') }}" />                                    </div>
+                                        <img height="40px" src="{{ asset('assets/images/course_dashboard.svg') }}" /> </div>
                                 </div>
                                 <h2 class="fw-bold mb-1">
-                                    1,22,456
+                                    {{ \App\Models\Video::all()->count() }}
                                 </h2>
-                                <span class="text-success fw-semi-bold"><i class="fe fe-trending-up me-1"></i>+1200</span>
-                                <span class="ms-1 fw-medium">Students</span>
+
                             </div>
                         </div>
                     </div>
@@ -99,17 +96,106 @@
                             <div class="card-body">
                                 <div class="d-flex align-items-center justify-content-between mb-3 lh-1">
                                     <div>
-                                        <span style="font-size: 16px !important;" class="fs-6 text-uppercase fw-semi-bold">Pre-Registrad</span>
+                                        <span style="font-size: 16px !important;" class="fs-6 text-uppercase fw-semi-bold">Jobs </span>
                                     </div>
                                     <div>
                                         <img height="40px" src="{{ asset('assets/images/online-voting.svg') }}" />
                                     </div>
                                 </div>
                                 <h2 class="fw-bold mb-1">
-                                    55
+
+                                    {{ \App\Models\admin\jobs::all()->count() }}
+
                                 </h2>
-                                <span class="text-success fw-semi-bold"><i class="fe fe-trending-up me-1"></i>+200</span>
-                                <span class="ms-1 fw-medium">Instructor</span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-12 col-12">
+                        <!-- Card -->
+                        <div class="card mb-4">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-between mb-3 lh-1">
+                                    <div>
+                                        <span style="font-size: 16px !important;" class="fs-6 text-uppercase fw-semi-bold">Podcasts </span>
+                                    </div>
+                                    <div>
+                                        <img height="40px" src="{{ asset('assets/images/icons8-podcast-64.png') }}" />
+                                    </div>
+                                </div>
+                                <h2 class="fw-bold mb-1">
+
+                                    {{ \App\Models\admin\PodCast::all()->count() }}
+
+                                </h2>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-12 col-12">
+                        <!-- Card -->
+                        <div class="card mb-4">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-between mb-3 lh-1">
+                                    <div>
+                                        <span style="font-size: 16px !important;" class="fs-6 text-uppercase fw-semi-bold">Materials </span>
+                                    </div>
+                                    <div>
+                                        <img height="40px" src="{{ asset('assets/images/icons8-book-48.png') }}" />
+                                    </div>
+                                </div>
+                                <h2 class="fw-bold mb-1">
+
+                                    {{ \App\Models\Materiels::all()->count() }}
+
+                                </h2>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-12 col-12">
+                        <!-- Card -->
+                        <div class="card mb-4">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-between mb-3 lh-1">
+                                    <div>
+                                        <span style="font-size: 16px !important;" class="fs-6 text-uppercase fw-semi-bold">Services </span>
+                                    </div>
+                                    <div>
+                                        <img height="40px" src="{{ asset('assets/images/icons8-service-50.png') }}" />
+                                    </div>
+                                </div>
+                                <h2 class="fw-bold mb-1">
+
+                                    {{ \App\Models\admin\Service::all()->count() }}
+
+                                </h2>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-12 col-12">
+                        <!-- Card -->
+                        <div class="card mb-4">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-between mb-3 lh-1">
+                                    <div>
+                                        <span style="font-size: 16px !important;" class="fs-6 text-uppercase fw-semi-bold">Internships </span>
+                                    </div>
+                                    <div>
+                                        <img height="40px" src="{{ asset('assets/images/icons8-internship-50.png') }}" />
+                                    </div>
+                                </div>
+                                <h2 class="fw-bold mb-1">
+
+                                    {{ \App\Models\admin\Interships::all()->count() }}
+
+                                </h2>
+
                             </div>
                         </div>
                     </div>
@@ -119,215 +205,56 @@
                         <div class="card">
                             <!-- card header  -->
                             <div class="card-header">
-                                <h4 class="mb-1">Last Pre-registration</h4>
+                                <h4 class="mb-1">new added students</h4>
                             </div>
                             <!-- table  -->
                             <div class="table-responsive">
                                 <table class="table table-hover text-nowrap mb-0">
                                     <thead>
                                     <tr>
-                                        <th>Project name</th>
-                                        <th>Due Date</th>
-                                        <th>priority</th>
-                                        <th>Members</th>
-                                        <th>Actions</th>
+                                        <th>STUDENT NAME</th>
+                                        <th>JOINED AT</th>
+                                        <th>ADDRESS</th>
+                                        <th>STATUS</th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td class="align-middle"><div class="d-flex
-                                          align-items-center">
-                                                <div>
-                                                    <div class="">
-                                                        <img src="../../assets/images/brand/dropbox-logo.svg" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="ms-3 lh-1">
-                                                    <h5 class="mb-1"> <a href="#" class="text-inherit">Dropbox Design
-                                                            System</a></h5>
+                                    @isset($all_pre_registrations)
+                                        @foreach($all_pre_registrations as $all_pre_registration)
 
-                                                </div>
-                                            </div></td>
-                                        <td class="align-middle">June 2</td>
-                                        <td class="align-middle"><span class="badge
-                                          bg-warning">Medium</span></td>
-                                        <td class="align-middle"><div class="avatar-group">
-                                          <span class="avatar avatar-sm">
-                                            <img alt="avatar" src="../../assets/images/avatar/avatar-1.jpg" class="rounded-circle">
-                                          </span>
-                                                <span class="avatar avatar-sm">
-                                            <img alt="avatar" src="../../assets/images/avatar/avatar-2.jpg" class="rounded-circle">
-                                          </span>
-                                                <span class="avatar avatar-sm">
-                                            <img alt="avatar" src="../../assets/images/avatar/avatar-3.jpg" class="rounded-circle">
-                                          </span>
-                                                <span class="avatar avatar-sm avatar-primary">
-                                            <span class="avatar-initials rounded-circle
-                                              fs-6">+5</span>
-                                          </span>
-                                            </div></td>
-                                        <td class="align-middle">
-                                            <div class="dropdown ">
-                                                <a class="text-muted text-primary-hover" href="#"
-                                                   role="button" id="dropdownThirtyOne"
-                                                   data-bs-toggle="dropdown" aria-haspopup="true"
-                                                   aria-expanded="false">
-                                                    <i class="fe fe-more-vertical" ></i>
-                                                </a>
-                                                <div class="dropdown-menu"
-                                                     aria-labelledby="dropdownThirtyOne">
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <a class="dropdown-item" href="#">Something else
-                                                        here</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle"><div class="d-flex
+                                            <tr>
+                                                <td class="align-middle"><div class="d-flex
                                           align-items-center">
-                                                <div>
-                                                    <div class="">
-                                                        <img src="../../assets/images/brand/slack-logo.svg" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="ms-3 lh-1">
-                                                    <h5 class="mb-1"> <a href="#" class="text-inherit">Slack  UI Design</a></h5>
-                                                </div>
-                                            </div></td>
-                                        <td class="align-middle">June 12</td>
-                                        <td class="align-middle"><span class="badge
-                                          bg-danger">High</span></td>
-                                        <td class="align-middle"><div class="avatar-group">
-                                          <span class="avatar avatar-sm">
-                                            <img alt="avatar" src="../../assets/images/avatar/avatar-4.jpg" class="rounded-circle">
-                                          </span>
-                                                <span class="avatar avatar-sm">
-                                            <img alt="avatar" src="../../assets/images/avatar/avatar-5.jpg" class="rounded-circle">
-                                          </span>
-                                                <span class="avatar avatar-sm">
-                                            <img alt="avatar" src="../../assets/images/avatar/avatar-6.jpg" class="rounded-circle">
-                                          </span>
-                                                <span class="avatar avatar-sm avatar-primary">
-                                            <span class="avatar-initials rounded-circle
-                                              fs-6">+5</span>
-                                          </span>
-                                            </div></td>
-                                        <td class="align-middle">
-                                            <div class="dropdown ">
-                                                <a class="text-muted text-primary-hover" href="#"
-                                                   role="button" id="dropdownThirtyTwo"
-                                                   data-bs-toggle="dropdown" aria-haspopup="true"
-                                                   aria-expanded="false">
-                                                    <i class="fe fe-more-vertical" ></i>
-                                                </a>
-                                                <div class="dropdown-menu"
-                                                     aria-labelledby="dropdownThirtyTwo">
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <a class="dropdown-item" href="#">Something else
-                                                        here</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle"><div class="d-flex
-                                          align-items-center">
-                                                <div>
-                                                    <div class="">
-                                                        <img src="../../assets/images/brand/github-logo.svg" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="ms-3 lh-1">
-                                                    <h5 class="mb-1"> <a href="#" class="text-inherit">GitHub Satellite</a></h5>
-                                                </div>
-                                            </div></td>
-                                        <td class="align-middle">Aug 14</td>
-                                        <td class="align-middle"><span class="badge bg-info">Low</span></td>
-                                        <td class="align-middle"><div class="avatar-group">
-                                          <span class="avatar avatar-sm">
-                                            <img alt="avatar" src="../../assets/images/avatar/avatar-7.jpg" class="rounded-circle">
-                                          </span>
-                                                <span class="avatar avatar-sm">
-                                            <img alt="avatar" src="../../assets/images/avatar/avatar-8.jpg" class="rounded-circle">
-                                          </span>
-                                                <span class="avatar avatar-sm">
-                                            <img alt="avatar" src="../../assets/images/avatar/avatar-9.jpg" class="rounded-circle">
-                                          </span>
-                                                <span class="avatar avatar-sm avatar-primary">
-                                            <span class="avatar-initials rounded-circle
-                                              fs-6">+1</span>
-                                          </span>
-                                            </div></td>
-                                        <td class="align-middle">
-                                            <div class="dropdown ">
-                                                <a class="text-muted text-primary-hover" href="#"
-                                                   role="button" id="dropdownThirtyThree"
-                                                   data-bs-toggle="dropdown" aria-haspopup="true"
-                                                   aria-expanded="false">
-                                                    <i class="fe fe-more-vertical" ></i>
-                                                </a>
-                                                <div class="dropdown-menu"
-                                                     aria-labelledby="dropdownThirtyThree">
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <a class="dropdown-item" href="#">Something else
-                                                        here</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle border-bottom-0"><div class="d-flex
-                                          align-items-center">
-                                                <div>
-                                                    <div class="">
-                                                        <img src="../../assets/images/brand/3dsmax-logo.svg" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="ms-3 lh-1">
-                                                    <h5 class="mb-1"> <a href="#" class="text-inherit">3D Character Modelling</a></h5>
-                                                </div>
-                                            </div></td>
-                                        <td class="align-middle border-bottom-0">Sept 20
-                                        </td>
-                                        <td class="align-middle border-bottom-0"><span class="badge
-                                          bg-warning">Medium</span></td>
-                                        <td class="align-middle border-bottom-0"><div class="avatar-group">
-                                          <span class="avatar avatar-sm">
-                                            <img alt="avatar" src="../../assets/images/avatar/avatar-10.jpg" class="rounded-circle">
-                                          </span>
-                                                <span class="avatar avatar-sm">
-                                            <img alt="avatar" src="../../assets/images/avatar/avatar-11.jpg" class="rounded-circle">
-                                          </span>
-                                                <span class="avatar avatar-sm">
-                                            <img alt="avatar" src="../../assets/images/avatar/avatar-12.jpg" class="rounded-circle">
-                                          </span>
-                                                <span class="avatar avatar-sm avatar-primary">
-                                            <span class="avatar-initials rounded-circle
-                                              fs-6">+5</span>
-                                          </span>
-                                            </div></td>
-                                        <td class="align-middle border-bottom-0">
-                                            <div class="dropdown ">
-                                                <a class="text-muted text-primary-hover" href="#"
-                                                   role="button" id="dropdownThirtyFour"
-                                                   data-bs-toggle="dropdown" aria-haspopup="true"
-                                                   aria-expanded="false">
-                                                    <i class="fe fe-more-vertical" ></i>
-                                                </a>
-                                                <div class="dropdown-menu"
-                                                     aria-labelledby="dropdownThirtyFour">
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <a class="dropdown-item" href="#">Something else
-                                                        here</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                                        <div>
+                                                            <div class="">
+                                                                <img style="width: 47px;border-radius: 50%;" src="{{ asset('assets/student/'. $all_pre_registration->avatar .'') }}" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="ms-3 lh-1">
+                                                            <h5 class="mb-1"> <a href="#" class="text-inherit">{{ $all_pre_registration->first_name }} {{ $all_pre_registration->last_name }}</a></h5>
+                                                        </div>
+                                                    </div></td>
+                                                <td class="align-middle">{{ $all_pre_registration->created_at }}</td>
+                                                <td class="align-middle">{{ $all_pre_registration->address }}</td>
+                                                <td class="align-middle">
+                                                    @if($all_pre_registration->status == 'is_pending')
+                                                        <span class="badge-dot bg-warning me-1 d-inline-block align-middle"></span>
+                                                        Pending
+                                                    @elseif($all_pre_registration->status == 'is_inactive')
+                                                        <span class="badge-dot bg-danger me-1 d-inline-block align-middle"></span>
+                                                        Inactive
+                                                    @endif
+
+
+                                                </td>
+
+                                            </tr>
+
+                                        @endforeach
+                                    @endisset
+
+
 
 
 
@@ -337,523 +264,276 @@
 
                         </div>
 
-                    </div>                </div>
-              <!--  <div class="row">
-
-                    <div class="col-md-12 col-lg-6 col-xl-4">
-                        <div class="mycard bg1 mb-4">
-                            <div class="left">
-                                <h5 class="title">Students! </h5>
-                                <span class="number">9</span>
-                                <a href="#" class="link">View All</a>
-                            </div>
-                            <div class="right d-flex align-self-center">
-                                <div class="icon">
-                                    <i class="fas fa-user-graduate"></i>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                    <div class="col-md-12 col-lg-6 col-xl-4">
-                        <div class="mycard bg2 mb-4">
-                            <div class="left">
-                                <h5 class="title">Chefs!</h5>
-                                <span class="number">0</span>
-                                <a href="#" class="link">View All</a>
-                            </div>
-                            <div class="right d-flex align-self-center">
-                                <div class="icon">
-                                    <i class="fas fa-chalkboard-teacher"></i>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-6 col-xl-4">
-                        <div class="mycard bg3 mb-4">
-                            <div class="left">
-                                <h5 class="title">Cources!</h5>
-                                <span class="number">2</span>
-                                <a href="#" class="link">View All</a>
-                            </div>
-                            <div class="right d-flex align-self-center">
-                                <div class="icon">
-                                    <i class="fas fa-place-of-worship"></i>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="col-xl-3 col-lg-6 col-md-12 col-12">
-
-            </div>
-
-
-        </div> -->
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+                    <div class="col-xl-12 col-12 mb-5">
                         <!-- Card -->
                         <div class="card mb-4">
                             <!-- Card header -->
-                            <div class="card-header align-items-center card-header-height d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h4 class="mb-0">Earnings</h4>
-                                </div>
-                                <div>
-                                    <div class="dropdown dropstart">
-                                        <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown1" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fe fe-more-vertical"></i>
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="courseDropdown1">
-                                            <span class="dropdown-header">Settings</span>
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fe fe-external-link dropdown-item-icon "></i>Export</a>
-                                            <a class="dropdown-item" href="#"><i class="fe fe-mail dropdown-item-icon "></i>Email
-                                                Report</a>
-                                            <a class="dropdown-item" href="#"><i
-                                                    class="fe fe-download dropdown-item-icon "></i>Download</a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="card-header">
+                                <h3 class="mb-0">Users</h3>
+                                <span>preview the all platform users</span>
                             </div>
                             <!-- Card body -->
-                            <div class="card-body">
-                                <!-- Earning chart -->
-                                <div id="earning" class="apex-charts"></div>
+
+                            <!-- Table -->
+                            <div class="table-responsive border-0 overflow-y-hidden">
+                                <table class="table mb-0 text-nowrap">
+                                    <thead class="table-light">
+                                    <tr>
+                                        <th scope="col" class="border-0">User</th>
+                                        <th scope="col" class="border-0">Enrolled Courses</th>
+                                        <th scope="col" class="border-0">Completed Courses</th>
+                                        <th scope="col" class="border-0">Status</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach(\App\Models\User::orderByDesc('is_online')->get() as $user)
+                                    <tr>
+                                        <td class="border-top-0">
+                                            <div class="d-lg-flex">
+                                                <div>
+                                                    <a href="#">
+                                                        <img src="{{ asset('assets/student/'.$user->avatar) }}" style="width: 47px;border-radius: 50%;" alt="" class=""></a>
+                                                </div>
+                                                <div class="ms-lg-3 mt-2 mt-lg-0">
+                                                    <h4 class="mb-1 h5">
+                                                        <a href="#" class="text-inherit">
+                                                           {{ $user->first_name }} {{ $user->last_name }}
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="border-top-0">{{ \App\Models\admin\EnrolledCourses::all()->where('user_id', $user->id)->count() }}</td>
+                                        <td class="border-top-0">
+                                            <span class="text-warning">{{ \App\Models\admin\Completed::all()->where('user_id',$user->id)->count() }}</span>
+                                        </td>
+                                        <td class="border-top-0">
+                                            @if( $user->is_online)
+                                            <span class="badge bg-success online" id="{{ $user->id }}">online</span>
+                                            @else
+                                                <span class="badge bg-dark offline" id="{{ $user->id }}">offline</span>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    @endforeach
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xl-4 col-lg-6 col-md-12 col-12 mb-4">
-                        <!-- Card -->
-                        <div class="card h-100">
-                            <!-- Card header -->
-                            <div class="card-header d-flex align-items-center
-                              justify-content-between card-header-height">
-                                <h4 class="mb-0">Last Student</h4>
-                                <a href="#" class="btn btn-outline-white btn-sm">View all</a>
-                            </div>
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <!-- List group -->
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item px-0 pt-0 ">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <div class="avatar avatar-md avatar-indicators avatar-offline">
-                                                    <img alt="avatar" src="{{ asset('assets/images/avatar/avatar-1.jpg') }}" class="rounded-circle">
-                                                </div>
-                                            </div>
-                                            <div class="col ms-n3">
-                                                <h4 class="mb-0 h5">New Cource</h4>
-                                                <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">42</span>Courses</span>
-                                                <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">1,10,124</span>Students</span>
-                                                <span class="fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">32,000</span> Reviews
-                                                </span>
-                                            </div>
-                                            <div class="col-auto">
-                                                <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown7"
-                               data-bs-toggle="dropdown"  data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown7">
-                              <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                                                <a class="dropdown-item" href="#"><i class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                                                </span>
-                                                </span>
-                                            </div>
-                                        </div>
+                    <div class="notify-holder">
 
-                                    </li>
-                                    <!-- List group -->
-                                    <li class="list-group-item px-0 ">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <div class="avatar avatar-md avatar-indicators avatar-online">
-                                                    <img alt="avatar" src="{{ asset('assets/images/avatar/avatar-2.jpg') }}" class="rounded-circle">
-                                                </div>
-                                            </div>
-                                            <div class="col ms-n3">
-                                                <h4 class="mb-0 h5">Jose Portilla</h4>
-                                                <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">12</span>Courses</span>
-                                                <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">21,567</span>Students</span>
-                                                <span class="fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">22,000
-                            </span> Reviews
-                                                </span>
-                                            </div>
-                                            <div class="col-auto">
-                                                <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown8"
-                               data-bs-toggle="dropdown"  data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown8">
-                              <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                                                <a class="dropdown-item" href="#"><i class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                                                </span>
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                    <!-- List group -->
-                                    <li class="list-group-item px-0 ">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <div class="avatar avatar-md avatar-indicators avatar-away">
-                                                    <img alt="avatar" src="{{ asset('assets/images/avatar/avatar-3.jpg') }}" class="rounded-circle">
-                                                </div>
-                                            </div>
-                                            <div class="col ms-n3">
-                                                <h4 class="mb-0 h5">Eleanor Pena</h4>
-                                                <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">32</span>Courses</span>
-                                                <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">11,604</span>Students</span>
-                                                <span class="fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">12,230
-                            </span> Reviews
-                                                </span>
-                                            </div>
-                                            <div class="col-auto">
-                                                <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown9"
-                               data-bs-toggle="dropdown"  data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown9">
-                              <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                                                <a class="dropdown-item" href="#"><i class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                                                </span>
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                    <!-- List group -->
-                                    <li class="list-group-item px-0 ">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <div class="avatar avatar-md avatar-indicators avatar-info">
-                                                    <img alt="avatar" src="{{ asset('assets/images/avatar/avatar-6.jpg') }}" class="rounded-circle">
-                                                </div>
-                                            </div>
-                                            <div class="col ms-n3">
-                                                <h4 class="mb-0 h5">March Delson</h4>
-                                                <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">23</span>Courses</span>
-                                                <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">6,304</span>Students</span>
-                                                <span class="fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">56,000</span> Reviews
-                                                </span>
-                                            </div>
-                                            <div class="col-auto">
-                                                <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown10"
-                               data-bs-toggle="dropdown"  data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown10">
-                              <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                                                <a class="dropdown-item" href="#"><i class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                                                </span>
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                    <!-- List group -->
-                                    <li class="list-group-item px-0 ">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <div class="avatar avatar-md avatar-indicators avatar-busy">
-                                                    <img alt="avatar" src="{{ asset('assets/images/avatar/avatar-7.jpg') }}" class="rounded-circle">
-                                                </div>
-                                            </div>
-                                            <div class="col ms-n3">
-                                                <h4 class="mb-0 h5">Sina Ray</h4>
-                                                <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">14</span>Courses</span>
-                                                <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">8,000</span>Students</span>
-                                                <span class="fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">33,000</span> Reviews
-                                                </span>
-                                            </div>
-                                            <div class="col-auto">
-                                                <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown11"
-                               data-bs-toggle="dropdown"  data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown11">
-                              <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                                                <a class="dropdown-item" href="#"><i class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                                                </span>
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
-                    <div class="col-xl-4 col-lg-6 col-md-12 col-12 mb-4">
-                        <!-- Card -->
-                        <div class="card h-100">
-                            <!-- Card header -->
-                            <div class="card-header d-flex align-items-center
-                              justify-content-between card-header-height">
-                                <h4 class="mb-0">Recent Courses</h4>
-                                <a href="#" class="btn btn-outline-white btn-sm">View all</a>
-                            </div>
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <!-- List group flush -->
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item px-0 pt-0">
-                                        <div class="row">
-                                            <!-- Col -->
-                                            <div class="col-auto">
-                                                <a href="#">
-                                                    <img src="{{ asset('assets/images/course/course-laravel.jpg') }}" alt="" class="img-fluid rounded img-4by3-lg" /></a>
-                                            </div>
-                                            <!-- Col -->
-                                            <div class="col ps-0">
-                                                <a href="#">
-                                                    <h5 class="text-primary-hover">
-                                                        Revolutionize how you build the web...
-                                                    </h5>
-                                                </a>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="{{ asset('assets/images/avatar/avatar-7.jpg') }}" alt="" class="rounded-circle avatar-xs me-2" />
-                                                    <span class="fs-6">Brooklyn Simmons</span>
-                                                </div>
-                                            </div>
-                                            <!-- Col auto -->
-                                            <div class="col-auto">
-                                                <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown3"
-                               data-bs-toggle="dropdown"  data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown3">
-                              <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                                                </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- List group -->
-                                    <li class="list-group-item px-0">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <a href="#"><img src="{{ asset('assets/images/course/course-gatsby.jpg') }}" alt="" class="img-fluid rounded img-4by3-lg" /></a>
-                                            </div>
-                                            <div class="col ps-0">
-                                                <a href="#">
-                                                    <h5 class="text-primary-hover">
-                                                        Guide to Static Sites with Gatsby.js
-                                                    </h5>
-                                                </a>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="{{ asset('assets/images/avatar/avatar-8.jpg') }}" alt="" class="rounded-circle avatar-xs me-2" />
-                                                    <span class="fs-6">Jenny Wilson</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown4"
-                               data-bs-toggle="dropdown"  data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown4">
-                              <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                                                </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- List group -->
-                                    <li class="list-group-item px-0">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <a href="#">
-                                                    <img src="{{ asset('assets/images/course/course-javascript.jpg') }}" alt="" class="img-fluid rounded img-4by3-lg" /></a>
-                                            </div>
-                                            <div class="col ps-0">
-                                                <a href="#">
-                                                    <h5 class="text-primary-hover">The Modern JavaScript Courses
-                                                    </h5>
-                                                </a>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="{{ asset('assets/images/avatar/avatar-1.jpg') }}" alt="" class="rounded-circle avatar-xs me-2" />
-                                                    <span class="fs-6">Guy Hawkins</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown5"
-                               data-bs-toggle="dropdown"  data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown5">
-                              <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                                                </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- List group -->
-                                    <li class="list-group-item px-0">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <a href="#">
-                                                    <img src="{{ asset('assets/images/course/course-wordpress.jpg') }}" alt="" class="img-fluid rounded img-4by3-lg" /></a>
-                                            </div>
-                                            <div class="col ps-0">
-                                                <a href="#">
-                                                    <h5 class="text-primary-hover">
-                                                        Online WordPress Courses Become an Expert Today‎
-                                                    </h5>
-                                                </a>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="{{ asset('assets/images/avatar/avatar-5.jpg') }}" alt="" class="rounded-circle avatar-xs me-2" />
-                                                    <span class="fs-6">Robert Fox</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown6"
-                               data-bs-toggle="dropdown"  data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown6">
-                              <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                                                </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-12 col-md-12 col-12 mb-4">
-                        <!-- Card -->
-                        <div class="card h-100">
-                            <!-- Card header -->
-                            <div class="card-header card-header-height d-flex align-items-center">
-                                <h4 class="mb-0">Activity
-                                </h4>
-                            </div>
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <!-- List group -->
-                                <ul class="list-group list-group-flush list-timeline-activity">
-                                    <li class="list-group-item px-0 pt-0 border-0 mb-2">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <div class="avatar avatar-md avatar-indicators avatar-online">
-                                                    <img alt="avatar" src="{{ asset('assets/images/avatar/avatar-6.jpg') }}" class="rounded-circle">
-                                                </div>
-                                            </div>
-                                            <div class="col ms-n2">
-                                                <h4 class="mb-0 h5">Dianna Smiley</h4>
-                                                <p class="mb-1">Just buy the courses”Build React Application Tutorial”</p>
-                                                <span class="fs-6">2m ago</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- List group -->
-                                    <li class="list-group-item px-0 pt-0  border-0 mb-2">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <div class="avatar avatar-md avatar-indicators avatar-offline">
-                                                    <img alt="avatar" src="{{ asset('assets/images/avatar/avatar-7.jpg') }}" class="rounded-circle">
-                                                </div>
-                                            </div>
-                                            <div class="col ms-n2">
-                                                <h4 class="mb-0 h5">
-                                                    Irene Hargrove
-                                                </h4>
-                                                <p class="mb-1">Comment on “Bootstrap Tutorial” Says “Hi,I m irene...</p>
-                                                <span class="fs-6">1 hour ago</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- List group -->
-                                    <li class="list-group-item px-0 pt-0  border-0 mb-2">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <div class="avatar avatar-md avatar-indicators avatar-busy">
-                                                    <img alt="avatar" src="{{ asset('assets/images/avatar/avatar-4.jpg') }}" class="rounded-circle">
-                                                </div>
-                                            </div>
-                                            <div class="col ms-n2">
-                                                <h4 class="mb-0 h5">Trevor Bradle</h4>
-                                                <p class="mb-1">Just share your article on Social Media..</p>
-                                                <span class="fs-6">2 month ago</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item px-0 pt-0 border-0">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <div class="avatar avatar-md avatar-indicators avatar-away">
-                                                    <img alt="avatar" src="{{ asset('assets/images/avatar/avatar-1.jpg') }}" class="rounded-circle">
-                                                </div>
-                                            </div>
-                                            <div class="col ms-n2">
-                                                <h4 class="mb-0 h5">John Deo</h4>
-                                                <p class="mb-1">Just buy the courses”Build React Application Tutorial”</p>
-                                                <span class="fs-6">2m ago</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
+        <audio id="notification" controls hidden>
+            <source src="{{ asset('/assets/notifications/iphone_notification.mp3') }}" type="audio/mp3">
+        </audio>
+
     </div>
 
 @endsection()
 
 @section('script')
+<script>
 
+    // styling the notifications
+
+
+
+        function deleteNotification(id){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            });
+            $.ajax({
+                type : 'POST' ,
+                url : "{{ route('admin.notification.delete') }}",
+                data : {'id' : id} ,
+                contentType: 'JSON' ,
+                success: (response) => {
+                    console.table(response)
+                },
+                error: function(response){
+                    console.log(response)
+                }
+            })
+        }
+        let index = 0
+    document.querySelectorAll('.btn-close').forEach(e => e.onclick = function (evt) {
+        evt.preventDefault()
+        console.log(e.id)
+    })
+    document.querySelectorAll('.btn-close').forEach(e => {
+        console.dir(e.childNodes[1].textContent = `Student ${notifications[index]['data']['first_name']} ${notifications[index]['data']['last_name']} logged at  ${notifications[index]['created_at']}`)
+        index++
+    } )
+
+</script>
+<script>
+    const host = window.location.host
+    const audioNotification = 'http://'+host+'/assets/notifications/iphone_notification.mp3'
+    function playSound() {
+        const audio = new Audio(audioNotification);
+        audio.play();
+    }
+    function getMessage(data , id){
+        const src = 'http://'+host+'/assets//close/close.svg'
+        return `<div class="alert alert-primary w-10" role="alert" >
+                        <strong>Notification!</strong> <span class="holder">${data}</span> just logged
+                        <button  type="button" class="btn-close noti-close" data-bs-dismiss="alert" aria-label="Close" data-id=${id}> <img src=${src} height="32" width="32"> </button>
+                    </div>`
+    }
+   function getNotification(){
+        console.log('getting notifications')
+       const notifications =  @json( $notifications );
+       for (const notification of notifications) {
+           console.log(notification['id'])
+           console.dir(notification['data'])
+
+           const holder = $('.notify-holder')
+
+           const oldHtml = holder.html()
+           const newHtml = getMessage(notification['data']['first_name'] + ' '+ notification['data']['last_name'] , notification['id'])
+           holder.html(newHtml + oldHtml)
+       }
+   }
+   getNotification()
+    console.log()
+    const holder = $('.notify-holder')
+
+    function checkDOMChange()
+    {
+        // check for any new element being inserted here,
+        // or a particular node being modified
+        if (document.querySelector('.alert') == undefined){
+            console.log('nothing there')
+            setTimeout( checkDOMChange, 3000 );
+        }else {
+            document.querySelectorAll('.btn-close').forEach(e => {
+                e.addEventListener('click' , function () {
+                    console.log('delete notification')
+                    const data_id = e.getAttribute('data-id')
+                    deleteNotification(data_id)
+                })
+            })
+            console.log('connected')
+            return
+        }
+
+        // call the function again after 100 milliseconds
+
+    }
+    function deleteNotification(id){
+        console.log('delete notifications')
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        });
+        $.ajax({
+            type : 'GET' ,
+            url : "{{ route('admin.notification.delete') }}",
+            contentType: 'JSON' ,
+            data : {id : id},
+            success: (response) => {
+                console.log('the response')
+            },
+            error: function(response){
+                console.log(response)
+            }
+        })
+    }
+    checkDOMChange()
+
+    const hiddenBtn = document.querySelector('.hiddenBtn')
+
+
+</script>
+    <script>
+        function checkOffline(){
+            console.log('check check')
+            let OfflineUser = []
+            let OnlineOnes = []
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            });
+            $.ajax({
+                type : 'GET' ,
+                url : "{{ route('admin.notification.online') }}",
+                contentType: 'JSON' ,
+                success: (response) => {
+                    console.log('the response checkonline')
+                    OnlineOnes = response['online']
+                    OfflineUser = response['offline']
+                    console.dir(OnlineOnes)
+                    console.dir(OfflineUser)
+                    const OfflineUserId = [];
+                    const OnnlineId = []
+                    for (const offlineUser of OfflineUser) {
+                        OfflineUserId.push(offlineUser['id'])
+                    }
+                    for (const onlineUser of OnlineOnes) {
+                        OnnlineId.push(onlineUser['id'])
+                    }
+                    console.log('offline ones')
+                    console.dir(OfflineUser)
+                    const offlines = document.querySelectorAll('.offline')
+                    console.log('id offline')
+                    offlines.forEach(off => {
+                        console.log(off.getAttribute('id'))
+                        if (OnnlineId.includes(parseInt(off.getAttribute('id')))){
+                            console.log('inclide')
+                            $("#"+off.getAttribute('id')).removeClass('bg-dark').addClass('bg-success')
+                            off.innerText = 'online'
+                        }
+                    })
+                    const onlines = document.querySelectorAll('.online')
+                    console.log('id online')
+                    onlines.forEach( on => {
+                        console.log(on.getAttribute('id'))
+                        if (OfflineUserId.includes(parseInt(on.getAttribute('id')))){
+                            console.log('include online')
+                            $("#"+on.getAttribute('id')).removeClass('bg-success').addClass('bg-dark')
+                            on.innerText = 'offline'
+                        }
+                    })
+                },
+                error: function(response){
+                    console.log(response)
+                }
+            })
+
+
+        }
+        setInterval(checkOffline , 3000)
+    </script>
 @endsection
+<style>
+    .notify-holder{
+        position: absolute;
+        top: 52px;
+        right: 71px;
+    }
+    .alert{
+        width: 20vw;
+        opacity: .8;
+    }
+    .btn-close{
+        position: absolute;
+        top: -11px;
+        right: 0;
+
+    }
+
+</style>

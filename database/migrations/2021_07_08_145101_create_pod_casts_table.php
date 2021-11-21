@@ -15,7 +15,9 @@ class CreatePodCastsTable extends Migration
     {
         Schema::create('pod_casts', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->text('podcastName');
+            $table->text('podcastUrl');
+            $table->integer('podcastOrder');
             $table->unsignedBigInteger('cource_id');
             $table->foreign('cource_id')->references('id')->on('cources');
             $table->timestamps();

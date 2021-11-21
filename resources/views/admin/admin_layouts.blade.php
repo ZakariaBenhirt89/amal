@@ -9,7 +9,7 @@
 
 
     <!-- Favicon icon-->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon/favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/favicon.ico') }}">
 
 
     <!-- Libs CSS -->
@@ -26,9 +26,21 @@
     <link href="{{ asset('assets/libs/tiny-slider/dist/tiny-slider.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/libs/tippy.js/dist/tippy.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet">
-
-
-
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link
+        href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+        rel="stylesheet"
+    />
+    <link
+        href="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.css"
+        rel="stylesheet"
+    />
+    <link href="https://unpkg.com/cloudinary-video-player@1.5.9/dist/cld-video-player.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/cloudinary-core@latest/cloudinary-core-shrinkwrap.min.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/cloudinary-video-player@1.5.9/dist/cld-video-player.min.js" type="text/javascript"></script>
+    <script src="{{ asset('js/html2canvas.min.js') }}"></script>
+    <script src="{{ asset('js/jsPDF-1.3.2/dist/jspdf.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.js') }}" ></script>
 
 
     <!-- Theme CSS -->
@@ -97,6 +109,21 @@
         .add_pod_cast{
           width: 105% !important;
         }
+        body::-webkit-scrollbar {
+            width: 9px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background-color: #e4e4e4;
+            border-radius: 100px;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            border-radius: 100px;
+            background-image: linear-gradient(90deg, rgba(24,20,60,1) 0%, rgba(65,65,207,1) 35%, rgba(255,170,70,1) 100%);
+            box-shadow: inset 2px 2px 5px 0 rgba(17, 42, 76, 0.5);
+        }
+
 
         @media screen and (max-width: 480px) {
             .add_videos {
@@ -382,9 +409,20 @@
 <script src="{{ asset('assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
 <script src="{{ asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise"></script>
 
-
-
+<!-- Latest version of Preview SDK for your locale -->
+<script src="https://cdn01.boxcdn.net/platform/preview/2.80.0/en-US/preview.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn01.boxcdn.net/platform/preview/2.80.0/en-US/preview.css"
+/>
 
 <!-- clipboard -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
@@ -392,10 +430,17 @@
 
 <!-- Theme JS -->
 <script src="{{ asset('assets/js/theme.min.js') }}"></script>
+<script src="{{ asset('js/podcast.js') }}" defer></script>
+<script type="module" src="{{ asset('js/script.js') }}" defer></script>
 <!-- start with crop image -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
-
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<link href="https://unpkg.com/cloudinary-video-player@1.5.9/dist/cld-video-player.min.css" rel="stylesheet">
+<script src="https://unpkg.com/cloudinary-core@latest/cloudinary-core-shrinkwrap.min.js" type="text/javascript"></script>
+<script src="https://unpkg.com/cloudinary-video-player@1.5.9/dist/cld-video-player.min.js" type="text/javascript"></script>
 @yield('script')
+@yield('credits')
+
 </body>
 
 </html>
